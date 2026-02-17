@@ -82,12 +82,13 @@ const Studios = () => {
                                 >
                                     {/* Video Preview */}
                                     <video
-                                        src={`${video.videoUrl}#t=0.1`}
+                                        src={video.videoUrl}
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
-                                        preload="auto"
+                                        preload="metadata"
+                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
                                         className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
                                     />
 

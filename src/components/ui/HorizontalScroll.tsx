@@ -21,12 +21,14 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                             <div className="absolute inset-0 bg-zinc-900">
                                 {card.videoUrl && (
                                     <video
-                                        src={`${card.videoUrl}#t=0.1`}
+                                        src={card.videoUrl}
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
-                                        preload="auto"
+                                        preload="metadata"
+                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
+                                        onError={(_e) => console.error('Video failed to load:', card.videoUrl)}
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                 )}

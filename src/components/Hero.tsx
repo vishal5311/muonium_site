@@ -10,10 +10,11 @@ const Hero = () => {
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
                 className="absolute inset-0 w-full h-full object-cover opacity-70 scale-105"
             >
-                <source src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4#t=0.1" type="video/mp4" />
+                <source src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4" type="video/mp4" />
             </video>
 
             {/* Gradient Overlays */}
