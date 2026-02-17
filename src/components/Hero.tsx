@@ -1,20 +1,32 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const Hero = () => {
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = "https://go.screenpal.com/player/appearance/cOnb2xn0OO3";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
     return (
         <header className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
-            {/* Background Video */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
-                poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
-            >
-                <source src="https://drive.google.com/uc?export=download&id=1VDlUz0rvoYsWB0H1B8Xjp_F_7xmwrEqs" type="video/mp4" />
-            </video>
+            {/* Background Video - ScreenPal Embed */}
+            <div className="absolute inset-0 w-full h-full z-0 opacity-50 select-none pointer-events-none">
+                <div className="sp-embed-player" data-id="cOnb2xn0OO3" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <iframe
+                        style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', border: '0', objectFit: 'cover' }}
+                        scrolling="no"
+                        src="https://go.screenpal.com/player/cOnb2xn0OO3?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1"
+                        allowFullScreen={true}
+                    ></iframe>
+                </div>
+            </div>
 
             {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
