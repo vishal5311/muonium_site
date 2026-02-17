@@ -25,6 +25,7 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                                     muted
                                     loop
                                     playsInline
+                                    preload="auto"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                                 />
                             ) : (

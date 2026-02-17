@@ -6,15 +6,15 @@ const Hero = () => {
         <header className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
             {/* Background Video */}
             <video
+                src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
                 poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
-            >
-                <source src="/videos/hero/web_clip.mp4" type="video/mp4" />
-            </video>
+            />
 
             {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
