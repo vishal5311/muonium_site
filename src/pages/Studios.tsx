@@ -82,11 +82,12 @@ const Studios = () => {
                                 >
                                     {/* Video Preview */}
                                     <video
-                                        src={video.videoUrl}
+                                        src={`${video.videoUrl}#t=0.1`}
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
+                                        preload="auto"
                                         className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
                                     />
 

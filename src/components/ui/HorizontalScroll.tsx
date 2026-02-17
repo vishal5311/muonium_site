@@ -18,16 +18,10 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                             className="group relative h-[450px] w-[300px] md:h-[600px] md:w-[450px] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 cursor-pointer"
                             onClick={card.onClick}
                         >
-                            <div className="absolute inset-0">
-                                {/* Base Image Fallback (Visible while video loads) */}
-                                <img
-                                    src={card.src}
-                                    alt={card.title}
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                />
+                            <div className="absolute inset-0 bg-zinc-900">
                                 {card.videoUrl && (
                                     <video
-                                        src={card.videoUrl}
+                                        src={`${card.videoUrl}#t=0.1`}
                                         autoPlay
                                         muted
                                         loop

@@ -157,9 +157,9 @@ const Media = () => {
                             {/* Content */}
                             <div className="absolute inset-0 z-0">
                                 <video
-                                    src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
+                                    src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4#t=0.1"
                                     autoPlay muted loop playsInline
-                                    poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
+                                    preload="auto"
                                     className="w-full h-full object-cover opacity-80"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
@@ -244,14 +244,9 @@ const Media = () => {
                             </div>
 
                             {/* Background Video Preview */}
-                            <div className="absolute inset-0 z-0">
-                                {/* Relevant Fallback Image */}
-                                <img
-                                    src={item.thumbnail}
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                />
+                            <div className="absolute inset-0 z-0 bg-zinc-900">
                                 <video
-                                    src={item.url}
+                                    src={`${item.url}#t=0.1`}
                                     autoPlay
                                     muted
                                     loop
