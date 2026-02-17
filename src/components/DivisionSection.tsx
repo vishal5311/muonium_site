@@ -28,19 +28,19 @@ const DivisionSection: React.FC<DivisionProps> = ({
     const bgStyles = {
         studios: "bg-gradient-to-b from-zinc-950 via-zinc-900 to-black",
         gaming: "bg-gradient-to-b from-black via-purple-950/20 to-zinc-950",
-        tech: "bg-zinc-50 text-zinc-900",
+        tech: "bg-gradient-to-b from-zinc-950 via-zinc-900 to-black",
     };
 
     const textStyles = {
         studios: "text-white",
         gaming: "text-white",
-        tech: "text-zinc-900",
+        tech: "text-white",
     };
 
     const accentStyles = {
         studios: "text-zinc-500",
         gaming: "text-purple-400/60",
-        tech: "text-zinc-400",
+        tech: "text-zinc-500",
     };
 
     return (
@@ -65,7 +65,7 @@ const DivisionSection: React.FC<DivisionProps> = ({
                         {title}
                     </h2>
                     <p className={cn("text-xl md:text-2xl font-light leading-relaxed mb-12 max-w-xl",
-                        backgroundMode === 'tech' ? 'text-zinc-600' : 'text-zinc-400'
+                        'text-zinc-400'
                     )}>
                         {description}
                     </p>
@@ -79,7 +79,7 @@ const DivisionSection: React.FC<DivisionProps> = ({
                                 transition={{ delay: 0.2 + index * 0.1 }}
                                 className="flex items-center gap-3 pt-4 border-t border-zinc-500/10"
                             >
-                                <div className={cn("w-1.5 h-1.5 rounded-full", backgroundMode === 'tech' ? 'bg-zinc-900' : 'bg-white')}></div>
+                                <div className={cn("w-1.5 h-1.5 rounded-full", 'bg-white')}></div>
                                 <span className="text-sm uppercase tracking-widest font-medium">{service}</span>
                             </motion.div>
                         ))}
@@ -89,7 +89,7 @@ const DivisionSection: React.FC<DivisionProps> = ({
                         to={`/${backgroundMode}`}
                         className={cn(
                             "inline-flex items-center gap-2 border-b-2 pb-1 transition-all hover:gap-4",
-                            backgroundMode === 'tech' ? "border-zinc-900 text-zinc-900" : "border-white text-white"
+                            "border-white text-white"
                         )}
                     >
                         <span className="uppercase tracking-[0.2em] font-medium text-sm">Enter Division</span>

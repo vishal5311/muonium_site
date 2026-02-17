@@ -15,13 +15,13 @@ const Studios = () => {
         {
             id: 1,
             title: "Ramayanam AI Promo",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
+            videoUrl: "/videos/studios/RAMAYANAM_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Thalaivar AI Promo",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
+            videoUrl: "/videos/studios/THALAIVAR173_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200&q=80"
         }
     ];
