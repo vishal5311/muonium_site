@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+﻿import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
@@ -31,15 +31,15 @@ const TechHero = () => {
     const initialTextOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-black">
+        <section ref={containerRef} className="relative h-[300vh] bg-zinc-50">
             <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-start overflow-hidden">
                 {/* Final Header (visible after scroll) */}
                 <motion.div
                     style={{ opacity }}
                     className="absolute top-[10%] w-full px-6 text-center z-10"
                 >
-                    <h2 className="text-4xl md:text-7xl font-instrument-serif text-white tracking-tight max-w-5xl mx-auto italic">
-                        The backbone of generative <br /> <span className="not-italic text-zinc-500">futures and enterprise scale.</span>
+                    <h2 className="text-4xl md:text-7xl font-instrument-serif text-zinc-900 tracking-tight max-w-5xl mx-auto italic">
+                        The backbone of generative <br /> <span className="not-italic text-zinc-400">futures and enterprise scale.</span>
                     </h2>
                 </motion.div>
 
@@ -76,12 +76,12 @@ const TechHero = () => {
 
 const TechAbout = () => {
     return (
-        <section className="py-32 bg-black overflow-hidden">
+        <section className="py-32 bg-zinc-50 overflow-hidden">
             <div className="container mx-auto px-6 max-w-screen-2xl">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
                     {/* Left Column: Big Card */}
-                    <div className="lg:col-span-8 relative rounded-3xl overflow-hidden min-h-[500px] group shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                    <div className="lg:col-span-8 relative rounded-3xl overflow-hidden min-h-[500px] group shadow-xl">
                         <img
                             src="https://images.unsplash.com/photo-1558494949-ef5485037025?q=80&w=2689&auto=format&fit=crop"
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -110,7 +110,7 @@ const TechAbout = () => {
                     </div>
 
                     {/* Right Column: Key Stats/Sectors */}
-                    <div className="lg:col-span-4 bg-zinc-950 rounded-3xl p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group border border-white/5">
+                    <div className="lg:col-span-4 bg-zinc-900 rounded-3xl p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group">
                         <div className="relative z-10">
                             <h3 className="text-3xl font-instrument-serif text-white mb-2 italic">Infrastructure</h3>
                             <p className="text-zinc-500 text-sm uppercase tracking-widest mb-12">Key Sectors Served</p>
@@ -123,7 +123,7 @@ const TechAbout = () => {
                                     { title: "Industrial SaaS", icon: <Server className="w-5 h-5" /> }
                                 ].map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-4 group/item">
-                                        <div className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 transition-colors group-hover/item:bg-white group-hover/item:text-black">
+                                        <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 transition-colors group-hover/item:bg-white group-hover/item:text-black">
                                             {item.icon}
                                         </div>
                                         <span className="text-zinc-300 font-medium group-hover/item:text-white transition-colors">{item.title}</span>
@@ -170,7 +170,7 @@ const TechAdvantages = () => {
     ];
 
     return (
-        <section className="py-32 bg-black text-white overflow-hidden relative border-y border-white/5">
+        <section className="py-32 bg-zinc-950 text-white overflow-hidden relative">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px]" />
 
@@ -245,13 +245,13 @@ const TechAdvantages = () => {
 
 const TechVision = () => {
     return (
-        <section className="py-40 bg-black">
+        <section className="py-40 bg-zinc-50">
             <div className="container mx-auto px-6 max-w-screen-2xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
                     {/* Left Sticky Column */}
                     <div className="lg:sticky lg:top-32 h-fit">
-                        <h2 className="text-5xl md:text-8xl font-instrument-serif leading-[0.85] tracking-tight mb-8 italic text-white">
-                            Strategic <br /> <span className="not-italic text-zinc-800">Vision.</span>
+                        <h2 className="text-5xl md:text-8xl font-instrument-serif leading-[0.85] tracking-tight mb-8 italic">
+                            Strategic <br /> <span className="not-italic text-zinc-300">Vision.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed max-w-xl">
                             We envision a world where high-fidelity generation and secure computing are
@@ -281,16 +281,16 @@ const TechVision = () => {
                         ].map((card, idx) => (
                             <div
                                 key={idx}
-                                className="bg-zinc-950 border border-white/5 rounded-[40px] p-10 md:p-14 hover:bg-zinc-900 transition-all duration-500 hover:-translate-y-2 group shadow-xl"
+                                className="bg-white border border-zinc-100 rounded-[40px] p-10 md:p-14 hover:bg-zinc-100 transition-all duration-500 hover:-translate-y-2 group shadow-sm hover:shadow-xl"
                             >
-                                <h3 className="text-4xl md:text-5xl font-instrument-serif text-white mb-6 italic">{card.title}</h3>
-                                <p className="text-zinc-500 text-lg mb-12 border-l border-zinc-800 pl-6">{card.desc}</p>
+                                <h3 className="text-4xl md:text-5xl font-instrument-serif text-zinc-900 mb-6 italic">{card.title}</h3>
+                                <p className="text-zinc-500 text-lg mb-12 border-l border-zinc-200 pl-6">{card.desc}</p>
 
-                                <div className="pt-8 border-t border-white/10 space-y-4">
+                                <div className="pt-8 border-t border-zinc-100 space-y-4">
                                     {card.items.map((item, i) => (
                                         <div key={i} className="flex items-center gap-3">
-                                            <CheckCircle2 className="w-5 h-5 text-zinc-700 group-hover:text-white transition-colors" />
-                                            <span className="text-zinc-500 group-hover:text-zinc-300 transition-colors font-medium">{item}</span>
+                                            <CheckCircle2 className="w-5 h-5 text-zinc-300 group-hover:text-zinc-900 transition-colors" />
+                                            <span className="text-zinc-400 group-hover:text-zinc-600 transition-colors font-medium">{item}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -309,7 +309,7 @@ const TechTimeline = () => {
 
     const eras = [
         {
-            years: "2018 - 2020",
+            years: "2018 ΓÇô 2020",
             title: "Foundation & Prototype",
             bg: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
             milestones: [
@@ -319,7 +319,7 @@ const TechTimeline = () => {
             ]
         },
         {
-            years: "2021 - 2023",
+            years: "2021 ΓÇô 2023",
             title: "Scaling & Industrialization",
             bg: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop",
             milestones: [
@@ -329,7 +329,7 @@ const TechTimeline = () => {
             ]
         },
         {
-            years: "2024 - Future",
+            years: "2024 ΓÇô Future",
             title: "Global Mesh & Autonomous Flows",
             bg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2670&auto=format&fit=crop",
             milestones: [
@@ -436,7 +436,7 @@ const TechTimeline = () => {
 
 const Tech = () => {
     return (
-        <div className="bg-black text-white selection:bg-white/10 selection:text-white">
+        <div className="bg-zinc-50 text-zinc-900 selection:bg-zinc-900 selection:text-white">
             <Navbar />
 
             <main>
@@ -447,23 +447,23 @@ const Tech = () => {
                 <TechTimeline />
 
                 {/* Partners Section (Final marquee effect) */}
-                <section className="py-32 overflow-hidden bg-black border-t border-white/5">
+                <section className="py-32 overflow-hidden bg-zinc-50 border-t border-zinc-200">
                     <div className="container mx-auto px-6 max-w-screen-2xl text-center mb-16">
-                        <h3 className="text-4xl md:text-5xl font-instrument-serif italic text-zinc-600 mb-2">Global Network</h3>
+                        <h3 className="text-4xl md:text-5xl font-instrument-serif italic text-zinc-400 mb-2">Global Network</h3>
                         <p className="text-zinc-500 uppercase tracking-widest text-xs font-bold leading-relaxed">Our Technology Ecosystem & Partners</p>
                     </div>
 
                     <div className="relative flex overflow-x-hidden">
                         <div className="animate-marquee whitespace-nowrap flex items-center gap-24 py-12">
                             {["NVIDIA", "MICROSOFT", "GOOGLE CLOUD", "AWS", "INTEL", "DARKTRACE", "CLOUDFLARE", "OPENAI", "DATADOG", "SNOWFLAKE"].map((partner, i) => (
-                                <span key={i} className="text-5xl md:text-8xl font-black text-zinc-900 hover:text-white transition-colors cursor-default select-none tracking-tighter">
+                                <span key={i} className="text-5xl md:text-8xl font-black text-zinc-200 hover:text-zinc-900 transition-colors cursor-default select-none tracking-tighter">
                                     {partner}
                                 </span>
                             ))}
                         </div>
                         <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-24 py-12">
                             {["NVIDIA", "MICROSOFT", "GOOGLE CLOUD", "AWS", "INTEL", "DARKTRACE", "CLOUDFLARE", "OPENAI", "DATADOG", "SNOWFLAKE"].map((partner, i) => (
-                                <span key={i} className="text-5xl md:text-8xl font-black text-zinc-900 hover:text-white transition-colors cursor-default select-none tracking-tighter">
+                                <span key={i} className="text-5xl md:text-8xl font-black text-zinc-200 hover:text-zinc-900 transition-colors cursor-default select-none tracking-tighter">
                                     {partner}
                                 </span>
                             ))}
