@@ -17,7 +17,7 @@ const Media = () => {
             subtitle: "Cinematic Promo",
             description: "A deep dive into hyper-realistic AI character generation and cinematic lighting.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
         {
@@ -26,7 +26,7 @@ const Media = () => {
             subtitle: "Environment Render",
             description: "Procedural asset generation for high-fidelity gaming environments.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },
         {
@@ -35,7 +35,7 @@ const Media = () => {
             subtitle: "Motion Study",
             description: "Advanced motion synthesis and facial mapping for digital humans.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
         {
@@ -44,7 +44,7 @@ const Media = () => {
             subtitle: "Level Design",
             description: "Large-scale terrain generation and real-time military asset synthesis.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1590431358682-628d67295797?auto=format&fit=crop&w=1200",
             category: "Gaming"
         }
     ];
@@ -245,13 +245,19 @@ const Media = () => {
 
                             {/* Background Video Preview */}
                             <div className="absolute inset-0 z-0">
+                                {/* Relevant Fallback Image */}
+                                <img
+                                    src={item.thumbnail}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
                                 <video
                                     src={item.url}
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
+                                    preload="auto"
+                                    className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>

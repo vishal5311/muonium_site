@@ -18,25 +18,25 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                             className="group relative h-[450px] w-[300px] md:h-[600px] md:w-[450px] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 cursor-pointer"
                             onClick={card.onClick}
                         >
-                            {card.videoUrl ? (
-                                <video
-                                    src={card.videoUrl}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            <div className="absolute inset-0">
+                                {/* Base Image Fallback (Visible while video loads) */}
+                                <img
+                                    src={card.src}
+                                    alt={card.title}
+                                    className="absolute inset-0 w-full h-full object-cover"
                                 />
-                            ) : (
-                                <div
-                                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                                    style={{
-                                        backgroundImage: `url(${card.src})`,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center",
-                                    }}
-                                />
-                            )}
+                                {card.videoUrl && (
+                                    <video
+                                        src={card.videoUrl}
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        preload="auto"
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                )}
+                            </div>
 
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10 pointer-events-none">
                                 <h3 className="text-3xl md:text-4xl font-instrument-serif text-white mb-2">{card.title}</h3>
