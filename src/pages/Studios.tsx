@@ -87,15 +87,15 @@ const Studios = () => {
                                         muted
                                         loop
                                         playsInline
-                                        className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-105 group-hover:scale-100"
+                                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-100 group-hover:scale-105"
                                     />
 
                                     {/* Dynamic Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
 
                                     {/* Play Overlay */}
                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="w-20 h-20 rounded-full bg-rose-500/10 backdrop-blur-md flex items-center justify-center border border-rose-500/20 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-500 shadow-2xl">
+                                        <div className="w-20 h-20 rounded-full bg-rose-500/10 backdrop-blur-md flex items-center justify-center border border-rose-500/20 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-500 shadow-2xl opacity-0 group-hover:opacity-100">
                                             <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2 drop-shadow-lg" />
                                         </div>
                                     </div>

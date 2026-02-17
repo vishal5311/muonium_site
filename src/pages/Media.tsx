@@ -268,7 +268,7 @@ const Media = () => {
                                     muted
                                     loop
                                     playsInline
-                                    className="w-full h-full object-cover grayscale opacity-20 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
+                                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>
