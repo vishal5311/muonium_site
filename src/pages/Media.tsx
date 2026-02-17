@@ -43,7 +43,7 @@ const Media = () => {
             title: "Military Camp",
             subtitle: "Level Design",
             description: "Large-scale terrain generation and real-time military asset synthesis.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
+            url: "https://drive.google.com/uc?export=download&id=1bM0Iu9HxPypIhbT_M_AAgiLb9I42oJk7",
             thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },
@@ -52,7 +52,7 @@ const Media = () => {
             title: "Office Render",
             subtitle: "Interior Design",
             description: "Precision lighting and material rendering for enterprise environments.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Office-Room_3.avi%20Render.mp4",
+            url: "https://drive.google.com/uc?export=download&id=1u2PDcK0EoARX3_CACwpQ6-nnaRsRHQ3k",
             thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },
@@ -61,7 +61,7 @@ const Media = () => {
             title: "Space Creator",
             subtitle: "Universe Gen",
             description: "Vast cosmic procedural generation for next-gen simulation.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
+            url: "https://drive.google.com/uc?export=download&id=10BkyDN-gxcGhFj8jOTuM_uh9Pya3naBD",
             thumbnail: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200",
             category: "Gaming"
         }
@@ -175,7 +175,7 @@ const Media = () => {
                             {/* Content */}
                             <div className="absolute inset-0 z-0">
                                 <video
-                                    src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
+                                    src="https://drive.google.com/uc?export=download&id=1VDlUz0rvoYsWB0H1B8Xjp_F_7xmwrEqs"
                                     autoPlay muted loop playsInline
                                     className="w-full h-full object-cover grayscale opacity-40"
                                 />

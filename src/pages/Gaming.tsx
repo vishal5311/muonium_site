@@ -21,19 +21,19 @@ const Gaming = () => {
         {
             id: 2,
             title: "Military Camp",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
+            videoUrl: "https://drive.google.com/uc?export=download&id=1bM0Iu9HxPypIhbT_M_AAgiLb9I42oJk7",
             thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 3,
             title: "Office Room Render",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Office-Room_3.avi%20Render.mp4",
+            videoUrl: "https://drive.google.com/uc?export=download&id=1u2PDcK0EoARX3_CACwpQ6-nnaRsRHQ3k",
             thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 4,
             title: "Space Creator",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
+            videoUrl: "https://drive.google.com/uc?export=download&id=10BkyDN-gxcGhFj8jOTuM_uh9Pya3naBD",
             thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
         }
     ];

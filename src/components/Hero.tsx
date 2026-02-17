@@ -13,7 +13,7 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105"
                 poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
             >
-                <source src="/videos/hero/web_clip.mp4" type="video/mp4" />
+                <source src="https://drive.google.com/uc?export=download&id=1VDlUz0rvoYsWB0H1B8Xjp_F_7xmwrEqs" type="video/mp4" />
             </video>
 
             {/* Gradient Overlays */}
