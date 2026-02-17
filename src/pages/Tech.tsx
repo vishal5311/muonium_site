@@ -1,14 +1,8 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
-    ChevronRight,
-    ChevronLeft,
-    Server,
     ShieldCheck,
-    Cpu,
-    Database,
-    Zap,
     Scale,
     Lock,
     Globe
