@@ -53,8 +53,8 @@ const Studios = () => {
 
                     <HeroCarousel
                         images={[
-                            { src: "https://images.unsplash.com/photo-1598899134739-9609c96191b0?q=80&w=2681&auto=format&fit=crop", alt: "Cinematic 1", title: "Neo Noir" },
-                            { src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 2", title: "Sci-Fi Landscapes" },
+                            { src: "https://images.unsplash.com/photo-1598899134739-9609c96191b0?q=80&w=2681&auto=format&fit=crop", alt: "Cinematic 1", title: "Ramayanam AI", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4" },
+                            { src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 2", title: "Thalaivar 173", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4" },
                             { src: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 3", title: "Digital Humans" },
                             { src: "https://images.unsplash.com/photo-1512070632392-1823bc3a059a?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 4", title: "Abstract Motion" },
                             { src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 5", title: "VFX Synthesis" },
@@ -82,14 +82,15 @@ const Studios = () => {
                                 >
                                     {/* Video Preview */}
                                     <video
-                                        src={video.videoUrl}
                                         autoPlay
                                         muted
                                         loop
                                         playsInline
                                         preload="auto"
                                         className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-105 group-hover:scale-100"
-                                    />
+                                    >
+                                        <source src={video.videoUrl} type="video/mp4" />
+                                    </video>
 
                                     {/* Dynamic Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />

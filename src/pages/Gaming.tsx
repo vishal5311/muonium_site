@@ -45,14 +45,24 @@ const Gaming = () => {
             <main>
                 {/* Cyberpunk Hero */}
                 <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-purple-950/20 to-black z-0"></div>
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        className="absolute inset-0 w-full h-full object-cover opacity-30"
+                    >
+                        <source src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4" type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-purple-950/20 to-black z-10"></div>
                     <motion.div
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        whileInView={{ opacity: 1 }}
                         transition={{ duration: 1 }}
-                        className="relative z-10 text-center px-6"
+                        className="relative z-20 text-center px-6"
                     >
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-instrument-serif tracking-tight mb-6">
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-instrument-serif tracking-tight mb-6 text-white">
                             Infinite <br /><span className="text-purple-500 italic">Worlds</span>
                         </h1>
                         <p className="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light">
