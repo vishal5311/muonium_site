@@ -15,7 +15,7 @@ const Gaming = () => {
         {
             id: 1,
             title: "Office Room Render",
-            videoUrl: "/videos/gaming/OFFICE_OUT.mp4",
+            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/OFFICE_OUT.mp4",
             thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
