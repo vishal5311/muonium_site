@@ -21,25 +21,22 @@ const HeroCarousel = ({ images }: { images: { src: string; alt: string; title: s
                         key={index}
                         className="relative w-[300px] md:w-[450px] aspect-[9/16] md:aspect-[4/5] rounded-[2rem] overflow-hidden group shrink-0 border border-white/5"
                     >
-                        <div className="absolute inset-0">
-                            {img.videoUrl ? (
-                                <video
-                                    src={img.videoUrl}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="auto"
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                />
-                            ) : (
-                                <img
-                                    src={img.src}
-                                    alt={img.alt}
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                />
-                            )}
-                        </div>
+                        {img.videoUrl ? (
+                            <video
+                                src={img.videoUrl}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
+                            />
+                        ) : (
+                            <img
+                                src={img.src}
+                                alt={img.alt}
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                            />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 flex items-end p-8">
                             <span className="text-white font-instrument-serif text-2xl italic tracking-wide">{img.title}</span>
                         </div>

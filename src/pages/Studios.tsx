@@ -15,19 +15,19 @@ const Studios = () => {
         {
             id: 1,
             title: "Ramayanam AI Promo",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
+            videoUrl: "/videos/studios/RAMAYANAM_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Thalaivar AI Promo",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
+            videoUrl: "/videos/studios/THALAIVAR173_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200&q=80"
         }
     ];
 
     return (
-        <div className="bg-black text-white selection:bg-rose-500/30 selection:text-rose-200">
+        <div className="bg-black text-white selection:bg-purple-500/30 selection:text-purple-200">
             <Navbar />
 
             <main>
@@ -53,11 +53,11 @@ const Studios = () => {
 
                     <HeroCarousel
                         images={[
-                            { src: "https://images.unsplash.com/photo-1598899134739-9609c96191b0?q=80&w=2681&auto=format&fit=crop", alt: "Cinematic 1", title: "Neo Noir", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4" },
-                            { src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 2", title: "Sci-Fi Landscapes", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4" },
-                            { src: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 3", title: "Digital Humans", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4" },
-                            { src: "https://images.unsplash.com/photo-1512070632392-1823bc3a059a?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 4", title: "Abstract Motion", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4" },
-                            { src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 5", title: "VFX Synthesis", videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4" },
+                            { src: "https://images.unsplash.com/photo-1598899134739-9609c96191b0?q=80&w=2681&auto=format&fit=crop", alt: "Cinematic 1", title: "Neo Noir" },
+                            { src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 2", title: "Sci-Fi Landscapes" },
+                            { src: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 3", title: "Digital Humans" },
+                            { src: "https://images.unsplash.com/photo-1512070632392-1823bc3a059a?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 4", title: "Abstract Motion" },
+                            { src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 5", title: "VFX Synthesis" },
                         ]}
                     />
                 </section>
@@ -87,9 +87,7 @@ const Studios = () => {
                                         muted
                                         loop
                                         playsInline
-                                        preload="metadata"
-                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
-                                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
+                                        className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-105 group-hover:scale-100"
                                     />
 
                                     {/* Dynamic Overlay */}

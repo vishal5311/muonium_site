@@ -15,26 +15,26 @@ const Gaming = () => {
         {
             id: 1,
             title: "Abandoned School",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?auto=format&fit=crop&w=1200&q=80"
+            videoUrl: "/videos/gaming/Abandoned-School.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Military Camp",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1590431358682-628d67295797?auto=format&fit=crop&w=1200&q=80"
+            videoUrl: "/videos/gaming/MILITARY_CAMP.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 3,
             title: "Office Room Render",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Office-Room_3.avi%20Render.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+            videoUrl: "/videos/gaming/office_room_render.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 4,
             title: "Space Creator",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
-            thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+            videoUrl: "/videos/gaming/Space-Creator-Environment.mov",
+            thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
         }
     ];
 

@@ -33,7 +33,7 @@ const Navbar = () => {
             <a href="/" className="flex items-center gap-3 z-50 group">
                 <div className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden rounded-lg">
                     <img
-                        src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png"
+                        src="/Muonium.png"
                         alt="Muonium AI Logo"
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                     />

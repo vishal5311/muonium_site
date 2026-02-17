@@ -17,26 +17,26 @@ const Media = () => {
             subtitle: "Cinematic Promo",
             description: "A deep dive into hyper-realistic AI character generation and cinematic lighting.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
         {
             id: 2,
+            title: "Thalaivar 173 AI",
+            subtitle: "Motion Study",
+            description: "Advanced motion synthesis and facial mapping for digital humans.",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200",
+            category: "Studios"
+        },
+        {
+            id: 3,
             title: "Abandoned School",
             subtitle: "Environment Render",
             description: "Procedural asset generation for high-fidelity gaming environments.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200",
             category: "Gaming"
-        },
-        {
-            id: 3,
-            title: "Thalaivar AI",
-            subtitle: "Motion Study",
-            description: "Advanced motion synthesis and facial mapping for digital humans.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200",
-            category: "Studios"
         },
         {
             id: 4,
@@ -44,7 +44,25 @@ const Media = () => {
             subtitle: "Level Design",
             description: "Large-scale terrain generation and real-time military asset synthesis.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1590431358682-628d67295797?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200",
+            category: "Gaming"
+        },
+        {
+            id: 5,
+            title: "Office Room",
+            subtitle: "Interior Render",
+            description: "Detailed office interior with ray-traced reflections and realistic lighting.",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Office-Room_3.avi%20Render.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200",
+            category: "Gaming"
+        },
+        {
+            id: 6,
+            title: "Space Creator",
+            subtitle: "Cosmic Environment",
+            description: "Expansive space creation tools for building vast cosmic environments.",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
+            thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200",
             category: "Gaming"
         }
     ];
@@ -159,9 +177,7 @@ const Media = () => {
                                 <video
                                     src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                                     autoPlay muted loop playsInline
-                                    preload="metadata"
-                                    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
-                                    className="w-full h-full object-cover opacity-80"
+                                    className="w-full h-full object-cover grayscale opacity-40"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
                             </div>
@@ -169,7 +185,7 @@ const Media = () => {
                             {/* UI Overlay */}
                             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden text-center">
+                                    <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden">
                                         <img src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png" className="w-full h-full object-contain p-1" />
                                     </div>
                                     <div>
@@ -244,17 +260,11 @@ const Media = () => {
                                 </p>
                             </div>
 
-                            {/* Background Video Preview */}
-                            <div className="absolute inset-0 z-0 bg-zinc-900">
-                                <video
-                                    src={item.url}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="metadata"
-                                    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%2318181b'/%3E%3C/svg%3E"
-                                    className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                            {/* Background Image/Video Preview */}
+                            <div className="absolute inset-0 z-0">
+                                <img
+                                    src={item.thumbnail}
+                                    className="w-full h-full object-cover grayscale opacity-20 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>

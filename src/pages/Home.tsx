@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
     return (
-        <>
+        <div className="bg-black text-white selection:bg-white/10 selection:text-white">
             <Navbar />
             <main>
                 <Hero />
@@ -95,7 +95,7 @@ const Home = () => {
                 </section>
             </main>
             <Footer />
-        </>
+        </div>
     );
 };
 
