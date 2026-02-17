@@ -160,7 +160,7 @@ const Media = () => {
                                     src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                                     autoPlay muted loop playsInline
                                     poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
-                                    className="w-full h-full object-cover grayscale opacity-40"
+                                    className="w-full h-full object-cover opacity-80"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
                             </div>
@@ -243,11 +243,15 @@ const Media = () => {
                                 </p>
                             </div>
 
-                            {/* Background Image/Video Preview */}
+                            {/* Background Video Preview */}
                             <div className="absolute inset-0 z-0">
-                                <img
-                                    src={item.thumbnail}
-                                    className="w-full h-full object-cover grayscale opacity-20 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
+                                <video
+                                    src={item.url}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>
