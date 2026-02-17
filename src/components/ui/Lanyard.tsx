@@ -7,11 +7,11 @@ import './Lanyard.css';
 
 // Simple 3D Card component
 function Card3D() {
-    const gltf = useGLTF('/assets/lanyard/card.glb');
+    const gltf = useGLTF('https://cdn.tinyglb.com/models/8c4e98f20d4e4c5081e6a4a5c2d0f28a.glb');
 
     return (
         <group position={[0, 0, 0]} rotation={[0.2, 0.3, 0]}>
-            <primitive object={gltf.scene} scale={2} />
+            <primitive object={gltf.scene} scale={2.5} />
         </group>
     );
 }
@@ -29,7 +29,12 @@ export default function Lanyard({ position = [0, 0, 5], fov = 50 }: any) {
                     gl.toneMappingExposure = 1;
                 }}
             >
-                <Suspense fallback={null}>
+                <Suspense fallback={
+                    <mesh>
+                        <sphereGeometry args={[1, 16, 16]} />
+                        <meshStandardMaterial color="white" wireframe />
+                    </mesh>
+                }>
                     <ambientLight intensity={0.5} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
                     <pointLight position={[-10, -10, -10]} intensity={0.5} />
@@ -40,7 +45,7 @@ export default function Lanyard({ position = [0, 0, 5], fov = 50 }: any) {
                         enablePan={false}
                         enableZoom={true}
                         minDistance={3}
-                        maxDistance={10}
+                        maxDistance={15}
                         autoRotate
                         autoRotateSpeed={0.5}
                     />

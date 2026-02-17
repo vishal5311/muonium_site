@@ -1,31 +1,19 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 
 const Hero = () => {
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "https://go.screenpal.com/player/appearance/cOnb2xn0OO3";
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
-
     return (
         <header className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
-            {/* Background Video - ScreenPal Embed */}
+            {/* Background Video - Vercel Blob */}
             <div className="absolute inset-0 w-full h-full z-0 opacity-50 select-none pointer-events-none">
-                <div className="sp-embed-player" data-id="cOnb2xn0OO3" data-aspect-ratio="1.777778" data-padding-top="56.250000%" style={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <iframe
-                        style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', border: '0', objectFit: 'cover' }}
-                        scrolling="no"
-                        src="https://go.screenpal.com/player/cOnb2xn0OO3?ff=1&ahc=1&dcc=1&tl=1&bg=transparent&share=1&download=1&embed=1&cl=1"
-                        allowFullScreen={true}
-                    ></iframe>
-                </div>
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src="https://formnsvrwptpmzme.public.blob.vercel-storage.com/web_clip.mp4"
+                />
             </div>
 
             {/* Gradient Overlays */}

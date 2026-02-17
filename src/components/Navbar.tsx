@@ -25,6 +25,7 @@ const Navbar = () => {
         { name: 'Contact', href: '/contact' },
     ];
 
+
     return (
         <nav
             className={`fixed top-8 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-[100] flex justify-between items-center py-4 px-8 rounded-full transition-all duration-500 ${isScrolled ? 'glass_nav scale-100' : 'bg-transparent scale-[1.02]'
@@ -33,7 +34,7 @@ const Navbar = () => {
             <a href="/" className="flex items-center gap-3 z-50 group">
                 <div className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden rounded-lg">
                     <img
-                        src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png"
+                        src="https://i.ibb.co/4ZbnJgdC/Muonium.png"
                         alt="Muonium AI Logo"
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                     />

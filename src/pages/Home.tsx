@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import DivisionSection from '../components/DivisionSection';
 import EthicsSection from '../components/EthicsSection';
+import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
@@ -93,10 +94,14 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+
+                <ContactSection />
             </main>
             <Footer />
         </div>
     );
 };
 
+
 export default Home;
+

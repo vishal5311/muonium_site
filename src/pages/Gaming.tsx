@@ -14,26 +14,20 @@ const Gaming = () => {
     const gamingVideos = [
         {
             id: 1,
-            title: "Abandoned School",
-            videoUrl: "/videos/gaming/Abandoned-School.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200&q=80"
+            title: "Office Room Render",
+            videoUrl: "/videos/gaming/OFFICE_OUT.mp4",
+            thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Military Camp",
-            videoUrl: "https://drive.google.com/uc?export=download&id=1bM0Iu9HxPypIhbT_M_AAgiLb9I42oJk7",
+            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
             thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80"
-        },
-        {
-            id: 3,
-            title: "Office Room Render",
-            videoUrl: "https://drive.google.com/uc?export=download&id=1u2PDcK0EoARX3_CACwpQ6-nnaRsRHQ3k",
-            thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 4,
             title: "Space Creator",
-            videoUrl: "https://drive.google.com/uc?export=download&id=10BkyDN-gxcGhFj8jOTuM_uh9Pya3naBD",
+            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
             thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
         }
     ];
@@ -66,10 +60,9 @@ const Gaming = () => {
                     items={gamingVideos.map(video => ({
                         src: video.thumbnail,
                         title: video.title,
-                        description: video.id === 1 ? "Abandoned school environment with cinematic lighting and realistic textures." :
+                        description: video.id === 1 ? "Detailed office interior with ray-traced reflections and realistic lighting." :
                             video.id === 2 ? "High-performance military camp assets designed for real-time engines." :
-                                video.id === 3 ? "Detailed office interior with ray-traced reflections and lighting." :
-                                    "Expansive space creation tools for building vast cosmic environments.",
+                                "Expansive space creation tools for building vast cosmic environments.",
                         videoUrl: video.videoUrl,
                         onClick: () => setActiveVideo(video.videoUrl)
                     }))}

@@ -1,339 +1,331 @@
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import VideoModal from '../components/ui/VideoModal';
-import { Play, Calendar, ArrowRight, Share2, Heart, MessageCircle, BarChart3, Database, Zap, Quote } from 'lucide-react';
+import { ExternalLink, Download, Newspaper, FileText } from 'lucide-react';
 
 const Media = () => {
-    const [activeVideo, setActiveVideo] = useState<string | null>(null);
-    const [videoTitle, setVideoTitle] = useState("");
-    const sliderRef = useRef<HTMLDivElement>(null);
-
-    const mediaCarousel = [
+    const featuredArticles = [
         {
-            id: 1,
-            title: "Ramayanam AI",
-            subtitle: "Cinematic Promo",
-            description: "A deep dive into hyper-realistic AI character generation and cinematic lighting.",
-            url: "/videos/studios/RAMAYANAM_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200",
-            category: "Studios"
+            badge: "Feature",
+            icon: <Newspaper className="w-12 h-12" />,
+            title: "How AI is resurrecting dead Indian politicians as elections loom",
+            outlet: "Al Jazeera",
+            date: "Feb 12, 2024",
+            description: "Al Jazeera explores Muonium AI Studios' role in multilingual campaign content and the safeguards the team follows.",
+            url: "https://www.aljazeera.com/economy/2024/2/12/how-ai-is-used-to-resurrect-dead-indian-politicians-as-elections-loom",
+            color: "from-red-500/20 to-orange-500/20"
         },
         {
-            id: 2,
-            title: "Thalaivar 173",
-            subtitle: "Motion Study",
-            description: "Advanced motion synthesis and facial mapping for digital humans.",
-            url: "/videos/studios/THALAIVAR173_AI_PROMO.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200",
-            category: "Studios"
+            badge: "Feature",
+            icon: <Newspaper className="w-12 h-12" />,
+            title: "AI companies are making millions producing election content in India",
+            outlet: "Rest of World",
+            date: "Jan 20, 2024",
+            description: "Rest of World profiles Senthil Nayagam and the Muonium AI Studios team inside India's booming election AI ecosystem.",
+            url: "https://restofworld.org/2024/india-elections-ai-content/",
+            color: "from-blue-500/20 to-cyan-500/20"
         },
         {
-            id: 3,
-            title: "Abandoned School",
-            subtitle: "Environment Render",
-            description: "Procedural asset generation for high-fidelity gaming environments.",
-            url: "/videos/gaming/Abandoned-School.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200",
-            category: "Gaming"
+            badge: "Global",
+            icon: <Newspaper className="w-12 h-12" />,
+            title: "AI is changing how elections are fought, from deepfake endorsements to chatbots",
+            outlet: "ABC News (Australia)",
+            date: "Feb 20, 2024",
+            description: "ABC News covers Muonium AI Studios' work on ethical political outreach and the transparency measures behind each project.",
+            url: "https://www.abc.net.au/news/science/2024-02-21/ai-elections-deepfakes-generative-campaign-endorsement-democracy/103483710",
+            color: "from-purple-500/20 to-pink-500/20"
         },
         {
-            id: 4,
-            title: "Military Camp",
-            subtitle: "Level Design",
-            description: "Large-scale terrain generation and real-time military asset synthesis.",
-            url: "https://drive.google.com/uc?export=download&id=1bM0Iu9HxPypIhbT_M_AAgiLb9I42oJk7",
-            thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200",
-            category: "Gaming"
+            badge: "National",
+            icon: <Newspaper className="w-12 h-12" />,
+            title: "Dead leaders \"rise\" in Tamil Nadu as deepfake tools warp poll campaign",
+            outlet: "NDTV (AFP)",
+            date: "Apr 3, 2024",
+            description: "NDTV/Afp highlights Muonium AI Studios' consent-driven likeness models for political storytelling.",
+            url: "https://www.ndtv.com/india-news/late-jayalalithaa-karunanidhi-campaign-for-polls-amid-deepfake-surge-5365616",
+            color: "from-green-500/20 to-emerald-500/20"
         },
         {
-            id: 5,
-            title: "Office Render",
-            subtitle: "Interior Design",
-            description: "Precision lighting and material rendering for enterprise environments.",
-            url: "https://drive.google.com/uc?export=download&id=1u2PDcK0EoARX3_CACwpQ6-nnaRsRHQ3k",
-            thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200",
-            category: "Gaming"
+            badge: "Profile",
+            icon: <FileText className="w-12 h-12" />,
+            title: "Love You: AI மூலம் மட்டுமே உருவான தமிழ் படம்—Senthil Nayagam explains",
+            outlet: "BBC News தமிழ்",
+            date: "2025",
+            description: "BBC News தமிழ் interviews Senthil on using AI to rethink production for cinema and branded content.",
+            url: "https://www.bbc.com/tamil/articles/cevz0m74vm9o",
+            color: "from-yellow-500/20 to-amber-500/20"
         },
         {
-            id: 6,
-            title: "Space Creator",
-            subtitle: "Universe Gen",
-            description: "Vast cosmic procedural generation for next-gen simulation.",
-            url: "https://drive.google.com/uc?export=download&id=10BkyDN-gxcGhFj8jOTuM_uh9Pya3naBD",
-            thumbnail: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200",
-            category: "Gaming"
+            badge: "Industry",
+            icon: <FileText className="w-12 h-12" />,
+            title: "Raanjhanaa reimagined: how AI is changing Indian films script to screen",
+            outlet: "BOOM News",
+            date: "Aug 22, 2025",
+            description: "BOOM News follows Muonium AI Studios' cinematic pipelines and the safeguards used to deliver distribution-ready visuals.",
+            url: "https://www.boomlive.in/law/raanjhanaa-reimagined-how-ai-is-changing-indian-films-script-to-screen-29308",
+            color: "from-rose-500/20 to-red-500/20"
         }
     ];
 
-    const openVideo = (url: string, title: string) => {
-        setActiveVideo(url);
-        setVideoTitle(title);
-    };
+    const broadcasts = [
+        {
+            title: "IndiaGlitz: AI editor interview on Kaavaalaa",
+            description: "Senthil discusses the viral Simran/Tamannaah recreation and the craft behind cinematic deepfakes.",
+            videoId: "2__freA62ro"
+        },
+        {
+            title: "Sun News: DeepSeek and the next wave of AI",
+            description: "A 2025 prime-time segment on how Muonium AI Studios evaluates new models and safeguards adoption.",
+            videoId: "ECQdX0XJEEE"
+        },
+        {
+            title: "Kumudam Reporter: Is AI essential or risky?",
+            description: "Tamil interview covering responsible deployment, ethics, and opportunities for creators.",
+            videoId: "XYfV0NEFhWw"
+        },
+        {
+            title: "DW News: Inside India's AI-powered election stories",
+            description: "International coverage of Muonium AI Studios' multilingual avatars and the safeguards that keep audiences informed.",
+            videoId: "YUPNbbh82Sc"
+        }
+    ];
+
+    const additionalCoverage = [
+        { title: "Another AI deepfake: Tamannaah replaced by Simran in Jailer's Kaavaalaa song", outlet: "The News Minute", date: "Jul 13, 2023", url: "https://www.thenewsminute.com/tamil-nadu/another-ai-deepfake-tamannaah-replaced-simran-jailer-s-kaavaalaa-song-179689" },
+        { title: "Morphed AI generated video of Simran on Tamannaah's dance video shocks netizens", outlet: "The Times of India", date: "Jul 15, 2023", url: "https://timesofindia.indiatimes.com/life-style/spotlight/morphed-ai-generated-video-of-simran-on-tamannaahs-dance-video-shocks-netizens/articleshow/101785183.cms" },
+        { title: "AI used to resurrect dead Indian politician M. Karunanidhi ahead of elections", outlet: "SCREENSHOT Media", date: "Feb 12, 2024", url: "https://screenshot-media.com/politics/global-politics/ai-resurrect-dead-indian-politician-karunanidhi/" },
+        { title: "Deepfake videos and images grow ahead of Indian polls, stirring unease", outlet: "The Straits Times", date: "Mar 8, 2024", url: "https://www.straitstimes.com/asia/south-asia/deepfake-videos-and-images-grow-ahead-of-indian-polls-stirring-unease" },
+        { title: "Ghost in the machine: Deepfake tools warp India election", outlet: "France 24 (AFP)", date: "Apr 3, 2024", url: "https://www.france24.com/en/live-news/20240403-ghost-in-the-machine-deepfake-tools-warp-india-election" },
+        { title: "Ghost in the machine: Deepfake tools warp India election", outlet: "Dawn (AFP)", date: "Apr 3, 2024", url: "https://www.dawn.com/news/1825444" },
+        { title: "Can Deepfake Jeopardize Elections 2024? Startups Come Up With Coping Mechanism", outlet: "Entrepreneur India", date: "Apr 23, 2024", url: "https://www.entrepreneur.com/en-in/news-and-trends/can-deepfake-jeopardize-elections-2024-startups-come-up/473088" },
+        { title: "Strategic Illusion: How AI is transforming Indian politics in the 2024 Lok Sabha elections", outlet: "Outlook India", date: "May 27, 2024", url: "https://www.outlookindia.com/national/strategic-illusion-how-ai-is-transforming-indian-political-landscape-in-the-run-up-to-2024-elections" },
+        { title: "How AI is changing elections around the world", outlet: "NBC News", date: "Jun 6, 2024", url: "https://www.nbcnews.com/tech/tech-news/ai-changing-elections-world-rcna87329" },
+        { title: "From politics to cinema: Senthil Nayagam on the power and pitfalls of AI in India", outlet: "Swarajya Magazine", date: "Apr 1, 2024", url: "https://swarajyamag.com/technology/from-politics-to-cinema-viral-ai-content-creator-senthil-nayagam-talks-power-and-pitfalls-of-ai-in-india" }
+    ];
 
     return (
-        <div className="bg-black text-white selection:bg-white/10 selection:text-white min-h-screen font-geist antialiased overflow-x-hidden">
+        <div className="bg-neutral-950 text-white selection:bg-rose-500/30 selection:text-rose-200 overflow-x-hidden">
             <Navbar />
 
-            {/* --- HERO SECTION (Inspired by Social Grow) --- */}
-            <main className="max-w-7xl mx-auto px-6 md:px-12 pt-32 lg:pt-48 pb-20">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-                    {/* Left Content */}
-                    <div className="flex flex-col gap-8 max-w-xl relative z-10">
-                        {/* Status Badge */}
+            <main className="pt-32">
+                {/* Hero Carousel Style */}
+                <section className="pb-20">
+                    <div className="container mx-auto px-6 md:px-12 mb-16">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="flex items-center gap-3"
+                            className="text-center max-w-4xl mx-auto"
                         >
-                            <div className="flex -space-x-2">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shadow-lg z-[10]">
-                                        <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-zinc-700 to-zinc-900" />
-                                    </div>
-                                ))}
-                            </div>
-                            <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Processing 50M+ Frames Weekly</span>
-                        </motion.div>
-
-                        {/* Headline */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight text-white"
-                        >
-                            Media that <br />
-                            <span className="font-instrument-serif italic font-medium text-zinc-500">transcends.</span>
-                        </motion.h1>
-
-                        {/* Subheadline */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-md font-light"
-                        >
-                            We synergize generative AI with high-end production pipelines to create visuals that were once impossible.
-                        </motion.p>
-
-                        {/* Actions */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-2"
-                        >
-                            <button
-                                onClick={() => openVideo(mediaCarousel[0].url, mediaCarousel[0].title)}
-                                className="bg-white text-black text-sm px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all hover:scale-105 active:scale-95 flex items-center gap-3 shadow-2xl shadow-white/5"
-                            >
-                                View Showreel
-                                <Play size={18} fill="currentColor" />
-                            </button>
-                            <a href="/contact" className="px-6 py-4 text-zinc-400 font-bold uppercase tracking-widest text-[10px] hover:text-white flex items-center gap-2 transition-colors">
-                                <Calendar size={18} />
-                                Schedule Demo
-                            </a>
-                        </motion.div>
-
-                        {/* Stats Decoration */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="mt-8 pt-8 border-t border-white/5 flex gap-12"
-                        >
-                            <div>
-                                <p className="text-3xl font-bold tracking-tight text-white">4K Native</p>
-                                <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1">Generation Depth</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold tracking-tight text-white">100ms</p>
-                                <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1">Latency Peak</p>
+                            <span className="inline-block px-4 py-2 bg-rose-500/10 text-rose-400 text-xs font-medium rounded-full mb-6 uppercase tracking-wider">
+                                Media Coverage
+                            </span>
+                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                                Muonium AI Studios<br />in the news.
+                            </h1>
+                            <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-8">
+                                Broadcasters, business journals, and tech outlets spotlight how the Muonium AI Studios team is shaping ethical synthetic media—from campaigning deepfakes to multilingual avatars and film collaborations.
+                            </p>
+                            <div className="flex flex-wrap gap-4 justify-center">
+                                <a
+                                    href="mailto:senthil@muonium.ai"
+                                    className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-neutral-200 transition-all"
+                                >
+                                    Press inquiry
+                                </a>
+                                <a
+                                    href="#featured"
+                                    className="px-8 py-4 border border-neutral-700 rounded-full font-medium hover:bg-neutral-900 transition-all"
+                                >
+                                    Browse highlights
+                                </a>
                             </div>
                         </motion.div>
                     </div>
 
-                    {/* Right Visual (Phone Mockup - Inspired by Social Grow) */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                        className="flex lg:justify-end relative justify-center"
-                    >
-                        {/* Glow Background */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-zinc-800/20 via-white/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+                    {/* Horizontal Scroll - Featured Articles */}
+                    <div id="featured" className="relative">
+                        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-[10%] pb-8 hide-scrollbar">
+                            {featuredArticles.map((article, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="snap-center shrink-0 w-[85vw] md:w-[450px] h-[600px] bg-neutral-900 rounded-3xl border border-neutral-800 flex flex-col overflow-hidden group hover:border-neutral-700 transition-all"
+                                >
+                                    {/* Header */}
+                                    <div className="p-8 flex justify-between items-start">
+                                        <div className={`h-12 w-12 bg-gradient-to-br ${article.color} rounded-2xl flex items-center justify-center text-white`}>
+                                            {article.icon}
+                                        </div>
+                                        <span className="px-3 py-1 bg-neutral-800 text-neutral-400 text-xs font-medium rounded-full uppercase tracking-wider">
+                                            {article.badge}
+                                        </span>
+                                    </div>
 
-                        {/* Phone Mockup Frame */}
-                        <div className="relative w-[300px] h-[600px] bg-zinc-950 rounded-[3rem] shadow-[0_0_100px_rgba(255,255,255,0.05)] border-[8px] border-zinc-900 overflow-hidden transform group transition-transform duration-500">
-                            {/* Dynamic Island */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-6 w-28 bg-black rounded-b-xl z-30"></div>
+                                    {/* Content */}
+                                    <div className="flex-1 px-8 flex flex-col">
+                                        <h3 className="text-2xl font-semibold tracking-tight mb-4 leading-tight group-hover:text-rose-400 transition-colors">
+                                            {article.title}
+                                        </h3>
+                                        <p className="text-neutral-400 text-sm mb-6 leading-relaxed flex-1">
+                                            {article.description}
+                                        </p>
+                                        <div className="flex items-center justify-between text-xs text-neutral-500 mb-6">
+                                            <span className="font-medium">{article.outlet}</span>
+                                            <span>{article.date}</span>
+                                        </div>
+                                    </div>
 
-                            {/* Content */}
-                            <div className="absolute inset-0 z-0">
-                                <video
-                                    src="https://drive.google.com/uc?export=download&id=1VDlUz0rvoYsWB0H1B8Xjp_F_7xmwrEqs"
-                                    autoPlay muted loop playsInline
-                                    className="w-full h-full object-cover grayscale opacity-40"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
-                            </div>
+                                    {/* CTA */}
+                                    <div className="p-8 pt-0">
+                                        <a
+                                            href={article.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-white text-black rounded-full font-medium hover:bg-neutral-200 transition-all"
+                                        >
+                                            Read article
+                                            <ExternalLink className="w-4 h-4" />
+                                        </a>
+                                    </div>
+                                </motion.div>
+                            ))}
 
-                            {/* UI Overlay */}
-                            <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden">
-                                        <img src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png" className="w-full h-full object-contain p-1" />
+                            {/* Download Press Kit Card */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="snap-center shrink-0 w-[85vw] md:w-[450px] h-[600px] bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-3xl border border-neutral-700 flex flex-col items-center justify-center p-8 text-center"
+                            >
+                                <Download className="w-16 h-16 text-rose-400 mb-6" />
+                                <h3 className="text-3xl font-bold mb-4">Press Resources</h3>
+                                <p className="text-neutral-400 mb-8 max-w-sm">
+                                    Download logos, brand guidelines, and executive bios.
+                                </p>
+                                <a
+                                    href="/assets/press-kit/muonium-press-kit.zip"
+                                    download
+                                    className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-neutral-200 transition-all inline-flex items-center gap-2"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    Download press kit
+                                </a>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* TV & Broadcast - Grid Layout */}
+                <section className="py-20 bg-zinc-950">
+                    <div className="container mx-auto px-6 md:px-12">
+                        <div className="text-center mb-16">
+                            <span className="text-rose-400 text-sm font-medium tracking-[0.3em] uppercase">TV & Broadcast</span>
+                            <h2 className="text-4xl md:text-5xl font-instrument-serif mt-4 mb-6">Interviews and coverage captured on air.</h2>
+                            <p className="text-zinc-500 max-w-2xl mx-auto">Swap the sample embeds with your actual TV clips, podcast videos, or webinar recordings to showcase Muonium AI Studios in action.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {broadcasts.map((broadcast, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="space-y-4"
+                                >
+                                    <div className="aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-white/10">
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={`https://www.youtube.com/embed/${broadcast.videoId}`}
+                                            title={broadcast.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full"
+                                        ></iframe>
                                     </div>
                                     <div>
-                                        <p className="text-sm font-bold tracking-tight">muonium.ai</p>
-                                        <p className="text-[10px] text-zinc-500 uppercase tracking-widest">Sponsored</p>
+                                        <h3 className="text-xl font-medium mb-2">{broadcast.title}</h3>
+                                        <p className="text-zinc-400 text-sm">{broadcast.description}</p>
                                     </div>
-                                </div>
-                                <h3 className="text-2xl font-instrument-serif italic mb-6">Generative Cinematic <br /> Infrastructure</h3>
-                                <button className="w-full py-4 bg-white text-black rounded-full font-bold text-[10px] uppercase tracking-widest shadow-xl">
-                                    Launch Interface
-                                </button>
-                            </div>
-
-                            {/* Floating Icons */}
-                            <div className="absolute right-4 bottom-40 flex flex-col gap-6 z-20">
-                                <Heart className="text-white/40 hover:text-white transition-colors cursor-pointer" size={20} />
-                                <MessageCircle className="text-white/40 hover:text-white transition-colors cursor-pointer" size={20} />
-                                <Share2 className="text-white/40 hover:text-white transition-colors cursor-pointer" size={20} />
-                            </div>
+                                </motion.div>
+                            ))}
                         </div>
-                    </motion.div>
-                </div>
+                    </div>
+                </section>
+
+                {/* Additional Coverage - Black & White Theme */}
+                <section className="py-32 bg-black">
+                    <div className="container mx-auto px-6 md:px-12">
+                        <div className="mb-16">
+                            <span className="inline-block bg-white/10 border border-white/10 text-white px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider mb-6">
+                                Additional Coverage
+                            </span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[0.95]">
+                                More stories from
+                                <span className="font-instrument-serif italic font-medium"> around the globe.</span>
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            {additionalCoverage.map((item, index) => (
+                                <motion.details
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    className="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 open:pb-4 border border-neutral-800 hover:border-neutral-700"
+                                >
+                                    <summary className="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-white hover:text-rose-400">
+                                        <div className="flex-1">
+                                            <h3 className="font-semibold text-white mb-1">{item.title}</h3>
+                                            <div className="flex items-center gap-4 text-xs text-neutral-500">
+                                                <span className="font-medium">{item.outlet}</span>
+                                                <span>•</span>
+                                                <span>{item.date}</span>
+                                            </div>
+                                        </div>
+                                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-open:rotate-45 transition-transform duration-300 ml-4">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M10 5v10M5 10h10" />
+                                            </svg>
+                                        </div>
+                                    </summary>
+                                    <div className="px-6">
+                                        <a
+                                            href={item.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-neutral-200 transition-all"
+                                        >
+                                            Read full article
+                                            <ExternalLink className="w-4 h-4" />
+                                        </a>
+                                    </div>
+                                </motion.details>
+                            ))}
+                        </div>
+                    </div>
+                </section>
             </main>
 
-            {/* --- MEDIA CAROUSEL (Inspired by Notion Template) --- */}
-            <section className="py-24 bg-zinc-900/10 border-t border-white/5">
-                <div className="container mx-auto px-6 mb-16 flex justify-between items-end">
-                    <div>
-                        <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em] mb-4 block">Archive Collection</span>
-                        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">Project <span className="font-instrument-serif italic text-zinc-500">Showcase</span></h2>
-                    </div>
-                    <div className="hidden md:flex gap-4">
-                        <button
-                            onClick={() => sliderRef.current?.scrollBy({ left: -400, behavior: 'smooth' })}
-                            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all"
-                        >
-                            <ArrowRight className="rotate-180" size={20} />
-                        </button>
-                        <button
-                            onClick={() => sliderRef.current?.scrollBy({ left: 400, behavior: 'smooth' })}
-                            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:bg-zinc-200 transition-all"
-                        >
-                            <ArrowRight size={20} />
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    ref={sliderRef}
-                    className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-4 md:px-[10%] no-scrollbar pb-12"
-                >
-                    {mediaCarousel.map((item) => (
-                        <div
-                            key={item.id}
-                            className="snap-center shrink-0 w-[85vw] md:w-[450px] aspect-[4/5] bg-zinc-950 rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border border-white/5 select-none hover:border-white/10 transition-colors cursor-pointer group"
-                            onClick={() => openVideo(item.url, item.title)}
-                        >
-                            {/* Header */}
-                            <div className="p-8 flex justify-between items-center relative z-20">
-                                <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{item.category}</span>
-                                <div className="h-10 w-10 bg-white/5 backdrop-blur-md text-white rounded-full flex items-center justify-center font-semibold text-lg border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
-                                    <Play size={16} fill="currentColor" />
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="flex-1 flex flex-col justify-end p-8 relative z-20">
-                                <h3 className="text-4xl font-semibold tracking-tighter leading-[1.1] mb-2">{item.title}</h3>
-                                <p className="text-zinc-500 text-sm mb-6 uppercase tracking-widest font-bold">{item.subtitle}</p>
-                                <p className="text-zinc-400 text-sm leading-relaxed font-light mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    {item.description}
-                                </p>
-                            </div>
-
-                            {/* Background Image/Video Preview */}
-                            <div className="absolute inset-0 z-0">
-                                <video
-                                    src={item.url}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* --- FEATURES SECTION (Inspired by Reachy/Aura.Build) --- */}
-            <section className="py-32 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-20">
-                        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-8">
-                            High-Fidelity <br /> <span className="font-instrument-serif italic text-zinc-500">Distribution.</span>
-                        </h2>
-                        <p className="text-zinc-500 max-w-md font-light text-lg">
-                            Muonium Media doesn't just create; we architect. Every pixel is processed through our hyperscale GPU clusters for absolute clarity.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border bg-white/5 border-white/5 rounded-3xl overflow-hidden shadow-2xl">
-                        {[
-                            { title: "Neural Synthesis", desc: "Proprietary diffusion models trained on curated high-fidelity cinematic data.", icon: <Zap /> },
-                            { title: "Hyperscale Compute", desc: "Processing over 50M frames weekly across 24 global edge-nodes.", icon: <BarChart3 /> },
-                            { title: "Zero Latency Flow", desc: "Live streaming of generated environments with sub-100ms response.", icon: <Database /> }
-                        ].map((feat, i) => (
-                            <div key={i} className="p-12 group transition-colors bg-black hover:bg-zinc-900/50">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 bg-white/5 text-zinc-400 group-hover:text-white group-hover:bg-white/10 transition-all border border-white/5">
-                                    {feat.icon}
-                                </div>
-                                <h3 className="text-xl font-medium tracking-tight mb-4">{feat.title}</h3>
-                                <p className="text-sm text-zinc-500 leading-relaxed font-light">
-                                    {feat.desc}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* --- TESTIMONIAL SECTION --- */}
-            <section className="py-32 px-6 bg-zinc-950/50 border-y border-white/5">
-                <div className="max-w-4xl mx-auto text-center">
-                    <Quote className="mx-auto mb-10 text-zinc-800" size={48} />
-                    <h3 className="text-3xl md:text-5xl font-instrument-serif italic text-white leading-tight mb-12">
-                        "They took the complexity of generative pipelines and turned it into a seamless <span className="not-italic font-geist text-zinc-500">creative tool for our studio.</span>"
-                    </h3>
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 rounded-full bg-zinc-900 border border-white/10 mb-4 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100" />
-                        </div>
-                        <p className="text-sm font-bold uppercase tracking-widest">James Cohen</p>
-                        <p className="text-xs text-zinc-500 mt-1">Founding Partner, Stellar VFX</p>
-                    </div>
-                </div>
-            </section>
-
-            <VideoModal
-                isOpen={!!activeVideo}
-                onClose={() => setActiveVideo(null)}
-                videoUrl={activeVideo || ''}
-                title={videoTitle}
-            />
-
             <Footer />
+
+            <style>{`
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}</style>
         </div>
     );
 };
