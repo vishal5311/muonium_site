@@ -6,7 +6,7 @@ const Footer = () => {
                     <div>
                         <a href="/" className="flex items-center gap-4 mb-8 group">
                             <img
-                                src="/Muonium.png"
+                                src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png"
                                 alt="Muonium AI Logo"
                                 className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform duration-500"
                             />

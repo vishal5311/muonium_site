@@ -22,7 +22,7 @@ const Media = () => {
         },
         {
             id: 2,
-            title: "Thalaivar 173 AI",
+            title: "Thalaivar 173",
             subtitle: "Motion Study",
             description: "Advanced motion synthesis and facial mapping for digital humans.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
@@ -49,20 +49,20 @@ const Media = () => {
         },
         {
             id: 5,
-            title: "Office Room",
-            subtitle: "Interior Render",
-            description: "Detailed office interior with ray-traced reflections and realistic lighting.",
+            title: "Office Render",
+            subtitle: "Interior Design",
+            description: "Precision lighting and material rendering for enterprise environments.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Office-Room_3.avi%20Render.mp4",
-            thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },
         {
             id: 6,
             title: "Space Creator",
-            subtitle: "Cosmic Environment",
-            description: "Expansive space creation tools for building vast cosmic environments.",
+            subtitle: "Universe Gen",
+            description: "Vast cosmic procedural generation for next-gen simulation.",
             url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
-            thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200",
+            thumbnail: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200",
             category: "Gaming"
         }
     ];
