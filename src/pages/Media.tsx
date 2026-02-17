@@ -16,7 +16,7 @@ const Media = () => {
             title: "Ramayanam AI",
             subtitle: "Cinematic Promo",
             description: "A deep dive into hyper-realistic AI character generation and cinematic lighting.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
+            url: "/videos/studios/RAMAYANAM_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
@@ -25,7 +25,7 @@ const Media = () => {
             title: "Thalaivar 173",
             subtitle: "Motion Study",
             description: "Advanced motion synthesis and facial mapping for digital humans.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
+            url: "/videos/studios/THALAIVAR173_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
@@ -34,7 +34,7 @@ const Media = () => {
             title: "Abandoned School",
             subtitle: "Environment Render",
             description: "Procedural asset generation for high-fidelity gaming environments.",
-            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
+            url: "/videos/gaming/Abandoned-School.mp4",
             thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },

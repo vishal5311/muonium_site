@@ -15,7 +15,7 @@ const Gaming = () => {
         {
             id: 1,
             title: "Abandoned School",
-            videoUrl: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
+            videoUrl: "/videos/gaming/Abandoned-School.mp4",
             thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200&q=80"
         },
         {
