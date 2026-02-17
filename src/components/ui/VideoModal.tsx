@@ -82,6 +82,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
                                 controlsList="nodownload nofullscreen"
                                 disablePictureInPicture
                                 onContextMenu={handleContextMenu}
+                                loop
                                 className="w-full h-auto"
                                 playsInline
                             >

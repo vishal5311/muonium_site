@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Home from "./pages/Home";
 import Studios from "./pages/Studios";
 import Gaming from "./pages/Gaming";
+import Media from "./pages/Media";
 import Tech from "./pages/Tech";
 import Contact from "./pages/Contact";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/studios" element={<Studios />} />
         <Route path="/gaming" element={<Gaming />} />
+        <Route path="/media" element={<Media />} />
         <Route path="/tech" element={<Tech />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
