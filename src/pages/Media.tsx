@@ -177,7 +177,6 @@ const Media = () => {
                                 <video
                                     src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                                     autoPlay muted loop playsInline
-                                    preload="auto"
                                     className="w-full h-full object-cover grayscale opacity-40"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
@@ -264,15 +263,13 @@ const Media = () => {
                             {/* Background Image/Video Preview */}
                             <div className="absolute inset-0 z-0">
                                 <video
+                                    src={item.url}
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
-                                    preload="auto"
                                     className="w-full h-full object-cover grayscale opacity-20 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
-                                >
-                                    <source src={item.url} type={item.url.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
-                                </video>
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>
                         </div>

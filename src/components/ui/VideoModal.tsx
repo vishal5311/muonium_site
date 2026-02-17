@@ -77,6 +77,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
                         <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
                             <video
                                 ref={videoRef}
+                                src={videoUrl}
                                 controls
                                 controlsList="nodownload nofullscreen"
                                 disablePictureInPicture
@@ -85,7 +86,6 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
                                 className="w-full h-auto"
                                 playsInline
                             >
-                                <source src={videoUrl} type={videoUrl.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
                                 Your browser does not support the video tag.
                             </video>
                         </div>

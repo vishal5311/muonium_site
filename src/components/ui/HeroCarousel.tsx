@@ -23,15 +23,13 @@ const HeroCarousel = ({ images }: { images: { src: string; alt: string; title: s
                     >
                         {img.videoUrl ? (
                             <video
+                                src={img.videoUrl}
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
-                                preload="auto"
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
-                            >
-                                <source src={img.videoUrl} type={img.videoUrl.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
-                            </video>
+                            />
                         ) : (
                             <img
                                 src={img.src}
