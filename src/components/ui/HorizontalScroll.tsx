@@ -18,7 +18,18 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                             className="group relative h-[450px] w-[300px] md:h-[600px] md:w-[450px] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 cursor-pointer"
                             onClick={card.onClick}
                         >
-                            {card.videoUrl ? (
+                            {/* Background Image (Always present as fallback/base) */}
+                            <div
+                                className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+                                style={{
+                                    backgroundImage: `url(${card.src})`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            />
+
+                            {/* Video Overlay (Plays on top if available) */}
+                            {card.videoUrl && (
                                 <video
                                     src={card.videoUrl}
                                     autoPlay
@@ -26,15 +37,6 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                                     loop
                                     playsInline
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
-                                />
-                            ) : (
-                                <div
-                                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
-                                    style={{
-                                        backgroundImage: `url(${card.src})`,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center",
-                                    }}
                                 />
                             )}
 

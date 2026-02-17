@@ -80,6 +80,12 @@ const Studios = () => {
                                     className="aspect-video bg-zinc-900 rounded-xl overflow-hidden group relative cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500"
                                     onClick={() => setActiveVideo(video.videoUrl)}
                                 >
+                                    {/* Thumbnail Fallback */}
+                                    <div
+                                        className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100 scale-105 group-hover:scale-100"
+                                        style={{ backgroundImage: `url(${video.thumbnail})` }}
+                                    />
+
                                     {/* Video Preview */}
                                     <video
                                         src={video.videoUrl}

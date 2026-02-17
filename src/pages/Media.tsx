@@ -159,6 +159,7 @@ const Media = () => {
                                 <video
                                     src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                                     autoPlay muted loop playsInline
+                                    poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop"
                                     className="w-full h-full object-cover grayscale opacity-40"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
