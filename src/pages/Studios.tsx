@@ -80,7 +80,6 @@ const Studios = () => {
                                     className="aspect-video bg-zinc-900 rounded-xl overflow-hidden group relative cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500"
                                     onClick={() => setActiveVideo(video.videoUrl)}
                                 >
-                                    {/* Video Preview */}
                                     <video
                                         src={video.videoUrl}
                                         autoPlay
