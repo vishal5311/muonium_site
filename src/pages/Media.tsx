@@ -16,7 +16,7 @@ const Media = () => {
             title: "Ramayanam AI",
             subtitle: "Cinematic Promo",
             description: "A deep dive into hyper-realistic AI character generation and cinematic lighting.",
-            url: "/videos/studios/RAMAYANAM_AI_PROMO.mp4",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/RAMAYANAM_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
@@ -25,7 +25,7 @@ const Media = () => {
             title: "Abandoned School",
             subtitle: "Environment Render",
             description: "Procedural asset generation for high-fidelity gaming environments.",
-            url: "/videos/gaming/Abandoned-School.mp4",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Abandoned-School.mp4",
             thumbnail: "https://images.unsplash.com/photo-1614728853911-0428d084338d?auto=format&fit=crop&w=1200",
             category: "Gaming"
         },
@@ -34,7 +34,7 @@ const Media = () => {
             title: "Thalaivar AI",
             subtitle: "Motion Study",
             description: "Advanced motion synthesis and facial mapping for digital humans.",
-            url: "/videos/studios/THALAIVAR173_AI_PROMO.mp4",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/THALAIVAR173_AI_PROMO.mp4",
             thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200",
             category: "Studios"
         },
@@ -43,7 +43,7 @@ const Media = () => {
             title: "Military Camp",
             subtitle: "Level Design",
             description: "Large-scale terrain generation and real-time military asset synthesis.",
-            url: "/videos/gaming/MILITARY_CAMP.mp4",
+            url: "https://74invwz5eh2od4uw.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
             thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200",
             category: "Gaming"
         }
@@ -157,7 +157,7 @@ const Media = () => {
                             {/* Content */}
                             <div className="absolute inset-0 z-0">
                                 <video
-                                    src="/videos/hero/web_clip.mp4"
+                                    src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/web_clip.mp4"
                                     autoPlay muted loop playsInline
                                     className="w-full h-full object-cover grayscale opacity-40"
                                 />
@@ -168,7 +168,7 @@ const Media = () => {
                             <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden text-center">
-                                        <img src="/Muonium.png" className="w-full h-full object-contain p-1" />
+                                        <img src="https://74invwz5eh2od4uw.public.blob.vercel-storage.com/Muonium.png" className="w-full h-full object-contain p-1" />
                                     </div>
                                     <div>
                                         <p className="text-sm font-bold tracking-tight">muonium.ai</p>
