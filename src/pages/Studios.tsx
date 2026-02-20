@@ -73,17 +73,16 @@ const Studios = () => {
 
                     <HeroCarousel
                         images={[
-                            { src: "https://i.ibb.co/bjGTRNHF/13.png", alt: "Studio Shot 11", title: "Studio Shot 11" },
-                            { src: "https://i.ibb.co/j27n48Q/12.png", alt: "Studio Shot 10", title: "Studio Shot 10" },
-                            { src: "https://i.ibb.co/dwdsjpPy/9.png", alt: "Studio Shot 9", title: "Studio Shot 9" },
-                            { src: "https://i.ibb.co/8n9Qjp4y/8.png", alt: "Studio Shot 8", title: "Studio Shot 8" },
-                            { src: "https://i.ibb.co/HfxZ9QXd/7.png", alt: "Studio Shot 7", title: "Studio Shot 7" },
-                            { src: "https://i.ibb.co/btPXFKM/6.png", alt: "Studio Shot 6", title: "Studio Shot 6" },
-                            { src: "https://i.ibb.co/9mNjW5sF/5.png", alt: "Studio Shot 5", title: "Studio Shot 5" },
-                            { src: "https://i.ibb.co/sZsXbqG/4.png", alt: "Studio Shot 4", title: "Studio Shot 4" },
-                            { src: "https://i.ibb.co/0VWZhWQC/3.png", alt: "Studio Shot 3", title: "Studio Shot 3" },
-                            { src: "https://i.ibb.co/GQ6CNh99/2.png", alt: "Studio Shot 2", title: "Studio Shot 2" },
-                            { src: "https://i.ibb.co/6C99zxw/1.png", alt: "Studio Shot 1", title: "Studio Shot 1" },
+                            { src: "https://i.ibb.co/bjGTRNHF/13.png", alt: "Studio Shot 10" },
+                            { src: "https://i.ibb.co/dwdsjpPy/9.png", alt: "Studio Shot 9" },
+                            { src: "https://i.ibb.co/8n9Qjp4y/8.png", alt: "Studio Shot 8" },
+                            { src: "https://i.ibb.co/HfxZ9QXd/7.png", alt: "Studio Shot 7" },
+                            { src: "https://i.ibb.co/btPXFKM/6.png", alt: "Studio Shot 6" },
+                            { src: "https://i.ibb.co/9mNjW5sF/5.png", alt: "Studio Shot 5" },
+                            { src: "https://i.ibb.co/sZsXbqG/4.png", alt: "Studio Shot 4" },
+                            { src: "https://i.ibb.co/0VWZhWQC/3.png", alt: "Studio Shot 3" },
+                            { src: "https://i.ibb.co/GQ6CNh99/2.png", alt: "Studio Shot 2" },
+                            { src: "https://i.ibb.co/6C99zxw/1.png", alt: "Studio Shot 1" },
                         ]}
                     />
                 </section>

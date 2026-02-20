@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const HeroCarousel = ({ images }: { images: { src: string; alt: string; title: string; videoUrl?: string; }[] }) => {
+const HeroCarousel = ({ images }: { images: { src: string; alt: string; title?: string; videoUrl?: string; }[] }) => {
     return (
         <div className="w-full overflow-hidden py-12 bg-black pointer-events-none select-none">
             <motion.div
@@ -37,9 +37,7 @@ const HeroCarousel = ({ images }: { images: { src: string; alt: string; title: s
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
                             />
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 flex items-end p-8">
-                            <span className="text-white font-instrument-serif text-2xl italic tracking-wide">{img.title}</span>
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 flex items-end p-8" />
                     </div>
                 ))}
             </motion.div>
