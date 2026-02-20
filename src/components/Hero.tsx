@@ -1,38 +1,32 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 const Hero = () => {
     const [videoLoaded, setVideoLoaded] = useState(false);
-    const [isInView, setIsInView] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsInView(entry.isIntersecting);
-            },
-            { threshold: 0.1 } // Hero should start loading almost immediately
-        );
-
-        if (containerRef.current) observer.observe(containerRef.current);
-        return () => observer.disconnect();
-    }, []);
+    const handleVideoLoad = () => {
+        // Essential delay to let the player finish its internal white-to-black transition
+        setTimeout(() => setVideoLoaded(true), 1500);
+    };
 
     return (
-        <header ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
+        <header className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
             {/* Background Video - Vimeo Embed */}
             <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none overflow-hidden bg-black">
-                {isInView && (
-                    <iframe
-                        src="https://player.vimeo.com/video/1166674206?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&byline=0&title=0&portrait=0&quality=540p&playsinline=1&dnt=1"
-                        frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        title="Hero Background"
-                        className={`absolute top-1/2 left-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${videoLoaded ? 'opacity-50' : 'opacity-0'}`}
-                        onLoad={() => setVideoLoaded(true)}
-                    />
-                )}
+                <iframe
+                    src="https://player.vimeo.com/video/1166674206?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479&quality=720p"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="Hero Background"
+                    className={`absolute top-1/2 left-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${videoLoaded ? 'opacity-50' : 'opacity-0'}`}
+                    style={{ background: 'black', colorScheme: 'dark', visibility: videoLoaded ? 'visible' : 'hidden' }}
+                    onLoad={handleVideoLoad}
+                />
+
+                {/* Black Overlay Mask */}
+                {!videoLoaded && <div className="absolute inset-0 bg-black z-10" />}
             </div>
 
             {/* Gradient Overlays */}

@@ -2,33 +2,41 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const VimeoEmbed = ({ vimeoId }: { vimeoId: string }) => {
-    const [isPlayerReady, setIsPlayerReady] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [isInView, setIsInView] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsInView(entry.isIntersecting);
-            },
-            { threshold: 0.6 }
-        );
-
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setIsInView(true);
+                observer.disconnect();
+            }
+        }, { rootMargin: '1200px' });
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
+
+    const handleLoad = () => {
+        // Wait for player to settle to prevent white flashes
+        setTimeout(() => setIsLoaded(true), 1200);
+    };
 
     return (
         <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden">
             {isInView && (
                 <iframe
-                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&byline=0&title=0&portrait=0&quality=540p&playsinline=1&dnt=1`}
+                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&quality=720p`}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${isPlayerReady ? 'opacity-100' : 'opacity-0'}`}
-                    onLoad={() => setIsPlayerReady(true)}
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ background: 'black', colorScheme: 'dark', visibility: isLoaded ? 'visible' : 'hidden' }}
+                    onLoad={handleLoad}
                 />
             )}
+            {/* Prevent white flash during load */}
+            {!isLoaded && <div className="absolute inset-0 bg-black z-10" />}
         </div>
     );
 };
