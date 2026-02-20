@@ -17,6 +17,11 @@ const VimeoEmbed = ({ vimeoId }: { vimeoId: string }) => {
         return () => observer.disconnect();
     }, []);
 
+    const handleLoad = () => {
+        // Wait for player to settle to prevent white flashes
+        setTimeout(() => setIsLoaded(true), 1200);
+    };
+
     return (
         <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden">
             {isInView && (
@@ -26,12 +31,12 @@ const VimeoEmbed = ({ vimeoId }: { vimeoId: string }) => {
                     allow="autoplay; fullscreen; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
                     className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                    style={{ background: 'transparent', colorScheme: 'dark' }}
-                    onLoad={() => setIsLoaded(true)}
+                    style={{ background: 'black', colorScheme: 'dark', visibility: isLoaded ? 'visible' : 'hidden' }}
+                    onLoad={handleLoad}
                 />
             )}
             {/* Prevent white flash during load */}
-            {!isLoaded && <div className="absolute inset-0 bg-zinc-950 z-10" />}
+            {!isLoaded && <div className="absolute inset-0 bg-black z-10" />}
         </div>
     );
 };

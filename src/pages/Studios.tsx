@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isPlayerReady, setIsPlayerReady] = useState(false);
     const [isInView, setIsInView] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -18,15 +18,25 @@ const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
                     observer.disconnect();
                 }
             },
-            { rootMargin: '1200px' } // More aggressive pre-loading
+            { rootMargin: '1000px' }
         );
 
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
 
+    const handleLoad = () => {
+        // Hold the black mask for an extra 1.5s after load 
+        // to let the Vimeo player finish its internal white-to-black transition
+        setTimeout(() => {
+            setIsPlayerReady(true);
+        }, 1500);
+    };
+
     return (
         <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden group">
+            <div className="absolute inset-0 bg-black z-0" /> {/* Solid black base */}
+
             {isInView && (
                 <iframe
                     src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&quality=720p`}
@@ -34,13 +44,22 @@ const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
                     allow="autoplay; fullscreen; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
                     title={title}
-                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                    style={{ background: 'transparent', colorScheme: 'dark' }}
-                    onLoad={() => setIsLoaded(true)}
+                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isPlayerReady ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
+                        background: 'black',
+                        colorScheme: 'dark',
+                        visibility: isPlayerReady ? 'visible' : 'hidden'
+                    }}
+                    onLoad={handleLoad}
                 />
             )}
-            {/* Dark placeholder to prevent white flash */}
-            {!isLoaded && <div className="absolute inset-0 bg-zinc-950 z-10" />}
+
+            {/* Solid Black Mask - Sits above everything until ready */}
+            {!isPlayerReady && (
+                <div className="absolute inset-0 bg-black z-20 flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-white/5 border-t-white/20 rounded-full animate-spin" />
+                </div>
+            )}
         </div>
     );
 };
