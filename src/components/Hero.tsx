@@ -25,24 +25,31 @@ const Hero = () => {
 
             {/* Bottom Bar Info */}
             <div className="absolute bottom-0 left-0 w-full px-6 py-8 md:px-12 md:py-10 z-20">
-                <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-12">
-                    {/* Empty Left Column (formerly description) */}
-                    <div className="hidden md:block"></div>
+                <div className="flex flex-col md:flex-row justify-between items-end gap-12">
+                    {/* Left Side: Concepts + Description */}
+                    <div className="flex flex-col gap-4">
+                        {/* Hero Concepts Line */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                            className="font-sans text-white text-[10px] md:text-sm font-medium tracking-[0.2em] uppercase"
+                        >
+                            Engineering Intelligence <span className="text-zinc-600 mx-2">|</span> Designing Worlds <span className="text-zinc-600 mx-2">|</span> Shaping Narrative
+                        </motion.h1>
 
-                    {/* Main Content - Center */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="text-center md:pb-2"
-                    >
-                        <h1 className="font-instrument-serif text-white text-[5vw] md:text-[0.9vw] uppercase tracking-[0.3em] mb-4 whitespace-nowrap">
-                            Engineering Intelligence | Designing Worlds | Shaping Narrative
-                        </h1>
-                        <p className="text-zinc-400 text-[3vw] md:text-[0.7vw] font-light uppercase tracking-[0.2em] leading-relaxed">
-                            AI-Driven Creative & Technology Studio based in Chennai.
-                        </p>
-                    </motion.div>
+                        {/* Description */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="hidden md:block"
+                        >
+                            <p className="text-zinc-400 text-sm md:text-base font-light uppercase tracking-wide leading-relaxed">
+                                AI-Driven Creative & Technology Studio <br /> based in Chennai.
+                            </p>
+                        </motion.div>
+                    </div>
 
                     {/* CTA - Bottom Right */}
                     <motion.div
