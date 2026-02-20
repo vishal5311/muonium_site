@@ -18,7 +18,7 @@ const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
                     observer.disconnect();
                 }
             },
-            { rootMargin: '100px' }
+            { rootMargin: '1200px' } // More aggressive pre-loading
         );
 
         if (containerRef.current) observer.observe(containerRef.current);
@@ -26,19 +26,21 @@ const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
     }, []);
 
     return (
-        <div ref={containerRef} className={`absolute inset-0 w-full h-full bg-zinc-900 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-40'}`}>
+        <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden group">
             {isInView && (
                 <iframe
-                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
+                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&quality=720p`}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
                     title={title}
-                    className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
-                    style={{ background: 'black' }}
+                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ background: 'transparent', colorScheme: 'dark' }}
                     onLoad={() => setIsLoaded(true)}
                 />
             )}
+            {/* Dark placeholder to prevent white flash */}
+            {!isLoaded && <div className="absolute inset-0 bg-zinc-950 z-10" />}
         </div>
     );
 };

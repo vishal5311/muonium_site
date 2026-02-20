@@ -12,24 +12,26 @@ const VimeoEmbed = ({ vimeoId }: { vimeoId: string }) => {
                 setIsInView(true);
                 observer.disconnect();
             }
-        }, { rootMargin: '100px' });
+        }, { rootMargin: '1200px' });
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
 
     return (
-        <div ref={containerRef} className={`absolute inset-0 w-full h-full bg-black overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden">
             {isInView && (
                 <iframe
-                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
+                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&quality=720p`}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
                     referrerPolicy="strict-origin-when-cross-origin"
-                    className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
-                    style={{ background: 'black' }}
+                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ background: 'transparent', colorScheme: 'dark' }}
                     onLoad={() => setIsLoaded(true)}
                 />
             )}
+            {/* Prevent white flash during load */}
+            {!isLoaded && <div className="absolute inset-0 bg-zinc-950 z-10" />}
         </div>
     );
 };
