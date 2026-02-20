@@ -25,30 +25,29 @@ const Hero = () => {
 
             {/* Bottom Bar Info */}
             <div className="absolute bottom-0 left-0 w-full px-6 py-8 md:px-12 md:py-10 z-20">
-                <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-                    {/* Left Side: Concepts + Description */}
-                    <div className="flex flex-col gap-4">
-                        {/* Hero Concepts Line */}
+                <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-12">
+                    {/* Description - Bottom Left */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="hidden md:block"
+                    >
+                        <p className="text-zinc-400 text-sm md:text-base font-light uppercase tracking-wide leading-relaxed">
+                            AI-Driven Creative & Technology Studio <br /> based in Chennai.
+                        </p>
+                    </motion.div>
+
+                    {/* Main Content - Center */}
+                    <div className="flex flex-col items-center">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                            className="font-sans text-white text-[10px] md:text-sm font-medium tracking-[0.2em] uppercase"
+                            className="font-sans text-white text-[10px] md:text-sm font-medium tracking-[0.2em] uppercase text-center"
                         >
-                            Engineering Intelligence <span className="text-zinc-600 mx-2">|</span> Designing Worlds <span className="text-zinc-600 mx-2">|</span> Shaping Narrative
+                            Engineering Intelligence <span className="text-zinc-600 mx-1 md:mx-2">|</span> Designing Worlds <span className="text-zinc-600 mx-1 md:mx-2">|</span> Shaping Narrative
                         </motion.h1>
-
-                        {/* Description */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, duration: 0.8 }}
-                            className="hidden md:block"
-                        >
-                            <p className="text-zinc-400 text-sm md:text-base font-light uppercase tracking-wide leading-relaxed">
-                                AI-Driven Creative & Technology Studio <br /> based in Chennai.
-                            </p>
-                        </motion.div>
                     </div>
 
                     {/* CTA - Bottom Right */}
