@@ -26,30 +26,22 @@ const Hero = () => {
             {/* Bottom Bar Info */}
             <div className="absolute bottom-0 left-0 w-full px-6 py-8 md:px-12 md:py-10 z-20">
                 <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-12">
-                    {/* Description - Bottom Left */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="hidden md:block"
-                    >
-                        <p className="text-zinc-400 text-sm md:text-base font-light uppercase tracking-wide leading-relaxed">
-                            AI-Driven Creative & Technology Studio <br /> based in Chennai.
-                        </p>
-                    </motion.div>
+                    {/* Empty Left Column (formerly description) */}
+                    <div className="hidden md:block"></div>
 
                     {/* Main Content - Center */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="text-center"
+                        className="text-center md:pb-2"
                     >
-                        <h1 className="flex flex-col items-center justify-center font-instrument-serif text-white leading-[0.85] tracking-tight mb-2">
-                            <span className="block text-[8vw] md:text-[3.5vw] uppercase">Engineering Intelligence.</span>
-                            <span className="block text-[8vw] md:text-[3.5vw] text-white/70 italic uppercase">Designing Worlds.</span>
-                            <span className="block text-[8vw] md:text-[3.5vw] uppercase">Shaping Narrative.</span>
+                        <h1 className="font-instrument-serif text-white text-[5vw] md:text-[0.9vw] uppercase tracking-[0.3em] mb-4 whitespace-nowrap">
+                            Engineering Intelligence | Designing Worlds | Shaping Narrative
                         </h1>
+                        <p className="text-zinc-400 text-[3vw] md:text-[0.7vw] font-light uppercase tracking-[0.2em] leading-relaxed">
+                            AI-Driven Creative & Technology Studio based in Chennai.
+                        </p>
                     </motion.div>
 
                     {/* CTA - Bottom Right */}
