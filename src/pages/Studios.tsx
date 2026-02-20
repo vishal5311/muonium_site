@@ -13,52 +13,26 @@ const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsInView(true);
-                    observer.disconnect();
-                }
+                setIsInView(entry.isIntersecting);
             },
-            { rootMargin: '1000px' }
+            { threshold: 0.6 }
         );
 
         if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
     }, []);
 
-    const handleLoad = () => {
-        // Hold the black mask for an extra 1.5s after load 
-        // to let the Vimeo player finish its internal white-to-black transition
-        setTimeout(() => {
-            setIsPlayerReady(true);
-        }, 1500);
-    };
-
     return (
-        <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden group">
-            <div className="absolute inset-0 bg-black z-0" /> {/* Solid black base */}
-
+        <div ref={containerRef} className="absolute inset-0 w-full h-full bg-black overflow-hidden">
             {isInView && (
                 <iframe
-                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&quality=720p`}
+                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&byline=0&title=0&portrait=0&quality=540p&playsinline=1&dnt=1`}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
                     title={title}
-                    className={`absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none transition-opacity duration-1000 ${isPlayerReady ? 'opacity-100' : 'opacity-0'}`}
-                    style={{
-                        background: 'black',
-                        colorScheme: 'dark',
-                        visibility: isPlayerReady ? 'visible' : 'hidden'
-                    }}
-                    onLoad={handleLoad}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${isPlayerReady ? 'opacity-100' : 'opacity-0'}`}
+                    onLoad={() => setIsPlayerReady(true)}
                 />
-            )}
-
-            {/* Solid Black Mask - Sits above everything until ready */}
-            {!isPlayerReady && (
-                <div className="absolute inset-0 bg-black z-20 flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-white/5 border-t-white/20 rounded-full animate-spin" />
-                </div>
             )}
         </div>
     );
