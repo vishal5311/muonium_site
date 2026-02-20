@@ -93,16 +93,16 @@ const Studios = () => {
 
                     <HeroCarousel
                         images={[
-                            { src: "https://i.ibb.co/bjGTRNHF/13.png", alt: "Studio Shot 10" },
-                            { src: "https://i.ibb.co/dwdsjpPy/9.png", alt: "Studio Shot 9" },
-                            { src: "https://i.ibb.co/8n9Qjp4y/8.png", alt: "Studio Shot 8" },
-                            { src: "https://i.ibb.co/HfxZ9QXd/7.png", alt: "Studio Shot 7" },
-                            { src: "https://i.ibb.co/btPXFKM/6.png", alt: "Studio Shot 6" },
-                            { src: "https://i.ibb.co/9mNjW5sF/5.png", alt: "Studio Shot 5" },
-                            { src: "https://i.ibb.co/sZsXbqG/4.png", alt: "Studio Shot 4" },
-                            { src: "https://i.ibb.co/0VWZhWQC/3.png", alt: "Studio Shot 3" },
-                            { src: "https://i.ibb.co/GQ6CNh99/2.png", alt: "Studio Shot 2" },
-                            { src: "https://i.ibb.co/6C99zxw/1.png", alt: "Studio Shot 1" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609636/13_s6tmfj.webp", alt: "Studio Shot 10" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609635/9_kiqvso.webp", alt: "Studio Shot 9" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609636/8_e6ozc4.webp", alt: "Studio Shot 8" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609638/7_zkezsp.webp", alt: "Studio Shot 7" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609636/6_bfv0gc.webp", alt: "Studio Shot 6" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609634/5_nu7brk.webp", alt: "Studio Shot 5" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609633/4_j05ege.webp", alt: "Studio Shot 4" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609638/3_krdsqm.webp", alt: "Studio Shot 3" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609638/2_lqygdr.webp", alt: "Studio Shot 2" },
+                            { src: "https://res.cloudinary.com/dskn6aove/image/upload/v1771609636/1_qh3nwl.webp", alt: "Studio Shot 1" },
                         ]}
                     />
                 </section>
