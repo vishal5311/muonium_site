@@ -65,7 +65,7 @@ const Studios = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2 }}
-                            className="text-6xl md:text-8xl lg:text-9xl font-instrument-serif leading-none mix-blend-difference"
+                            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-instrument-serif leading-none mix-blend-difference px-4"
                         >
                             Redefining <br /><span className="italic text-zinc-600">Cinema</span>
                         </motion.h1>
@@ -90,9 +90,9 @@ const Studios = () => {
                 {/* Feature Grid */}
                 <section className="py-32 bg-zinc-950">
                     <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
-                        <div className="sticky top-32 h-fit">
-                            <h2 className="text-5xl font-instrument-serif mb-8">AI-Generated <br /> Narrative</h2>
-                            <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
+                        <div className="sticky top-32 h-fit mb-12 md:mb-0">
+                            <h2 className="text-4xl md:text-5xl font-instrument-serif mb-8 leading-tight">AI-Generated <br className="hidden md:block" /> Narrative</h2>
+                            <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-md">
                                 We use proprietary diffusion models to generate film-quality environments, characters, and storyboards in real-time. What used to take months now takes days.
                             </p>
                         </div>

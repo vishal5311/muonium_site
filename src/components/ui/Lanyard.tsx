@@ -21,8 +21,8 @@ export default function Lanyard({ position = [0, 0, 5], fov = 50 }: any) {
         <div className="lanyard-wrapper">
             <Canvas
                 camera={{ position: position as any, fov: fov }}
-                dpr={[1, 2]}
-                gl={{ alpha: true, antialias: true }}
+                dpr={[1, 1.5]}
+                gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
                 onCreated={({ gl }) => {
                     gl.setClearColor(new THREE.Color(0x000000), 0);
                     gl.toneMapping = THREE.ACESFilmicToneMapping;

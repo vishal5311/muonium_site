@@ -51,6 +51,8 @@ const TechHero = () => {
                     <img
                         src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop"
                         alt="Infrastructure"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
@@ -84,6 +86,8 @@ const TechAbout = () => {
                     <div className="lg:col-span-8 relative rounded-3xl overflow-hidden min-h-[500px] group shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                         <img
                             src="https://images.unsplash.com/photo-1558494949-ef5485037025?q=80&w=2689&auto=format&fit=crop"
+                            loading="lazy"
+                            decoding="async"
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                             alt="Network"
                         />

@@ -40,69 +40,80 @@ const Navbar = () => {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <span className="text-sm md:text-base font-bold tracking-[0.2em] text-white">MUONIUM</span>
-                    <span className="text-[8px] md:text-[10px] font-medium tracking-[0.4em] text-white/40 uppercase -mt-1">Intelligence</span>
+                    <span className="text-sm md:text-base font-bold tracking-[0.1em] md:tracking-[0.2em] text-white">MUONIUM</span>
+                    <span className="text-[7px] md:text-[10px] font-medium tracking-[0.2em] md:tracking-[0.4em] text-white/40 uppercase -mt-0.5 md:-mt-1">Intelligence</span>
                 </div>
             </a>
 
-            {/* Desktop Menu Pill */}
-            <div className="hidden lg:flex items-center gap-6 py-2 px-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            {/* Desktop Menu Pill - Show from md up */}
+            <div className="hidden md:flex items-center gap-4 lg:gap-6 py-2 px-4 lg:px-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
                 {navLinks.map((link) => (
                     <a
                         key={link.name}
                         href={link.href}
-                        className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-colors"
+                        className="text-[9px] lg:text-[10px] font-bold uppercase tracking-[0.1em] lg:tracking-[0.2em] text-zinc-400 hover:text-white transition-colors"
                     >
                         {link.name}
                     </a>
                 ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
                 <a
                     href="/contact"
-                    className="hidden md:flex px-6 py-2.5 rounded-full bg-white text-black hover:bg-zinc-200 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest"
+                    className="hidden lg:flex px-6 py-2.5 rounded-full bg-white text-black hover:bg-zinc-200 transition-all duration-300 text-[10px] font-bold uppercase tracking-widest"
                 >
                     Contact
                 </a>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Menu Toggle - Hide from md up */}
                 <button
-                    className="lg:hidden text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                    className="md:hidden text-white p-2 rounded-full hover:bg-white/10 transition-colors z-[110]"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        className="fixed top-20 right-0 w-[280px] bg-zinc-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 flex flex-col gap-6 shadow-2xl z-50 origin-top-right"
-                    >
-                        {navLinks.map((link) => (
+                    <>
+                        {/* Backdrop to close menu */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] md:hidden"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            style={{ width: '100vw', height: '100vh', left: '50%', x: '-50%', top: '-32px' }}
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                            className="absolute top-full right-0 mt-4 w-[280px] bg-zinc-900/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 flex flex-col gap-6 shadow-2xl z-[110] origin-top-right md:hidden"
+                        >
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-2xl font-instrument-serif text-zinc-300 hover:text-white transition-colors italic"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                            <div className="h-px bg-white/10 w-full my-2" />
                             <a
-                                key={link.name}
-                                href={link.href}
-                                className="text-xl font-instrument-serif text-zinc-300 hover:text-white transition-colors italic"
+                                href="/contact"
+                                className="bg-white text-black py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                {link.name}
+                                Contact Us
                             </a>
-                        ))}
-                        <div className="h-px bg-white/10 w-full my-2" />
-                        <a
-                            href="#book"
-                            className="bg-white text-black py-4 rounded-full text-center font-bold text-xs uppercase tracking-widest"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Book a Session
-                        </a>
-                    </motion.div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>

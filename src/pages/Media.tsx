@@ -119,7 +119,7 @@ const Media = () => {
                             <span className="inline-block px-4 py-2 bg-rose-500/10 text-rose-400 text-xs font-medium rounded-full mb-6 uppercase tracking-wider">
                                 Media Coverage
                             </span>
-                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6">
                                 Muonium AI Studios<br />in the news.
                             </h1>
                             <p className="text-neutral-400 text-lg max-w-2xl mx-auto mb-8">
@@ -266,7 +266,7 @@ const Media = () => {
                             <span className="inline-block bg-white/10 border border-white/10 text-white px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider mb-6">
                                 Additional Coverage
                             </span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[0.95]">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[0.95]">
                                 More stories from
                                 <span className="font-instrument-serif italic font-medium"> around the globe.</span>
                             </h2>
