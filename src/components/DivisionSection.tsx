@@ -61,7 +61,7 @@ const DivisionSection: React.FC<DivisionProps> = ({
                     <span className={cn("uppercase tracking-[0.3em] text-xs font-semibold mb-6 block", accentStyles[backgroundMode])}>
                         {subtitle}
                     </span>
-                    <h2 className={cn("text-6xl md:text-7xl lg:text-8xl font-instrument-serif leading-none mb-8", textStyles[backgroundMode])}>
+                    <h2 className={cn("text-5xl md:text-7xl lg:text-8xl font-instrument-serif leading-none mb-8", textStyles[backgroundMode])}>
                         {title}
                     </h2>
                     <p className={cn("text-xl md:text-2xl font-light leading-relaxed mb-12 max-w-xl",
@@ -108,6 +108,8 @@ const DivisionSection: React.FC<DivisionProps> = ({
                             <img
                                 src={imageUrl}
                                 alt={title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
                             />
                         ) : (

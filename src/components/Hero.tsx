@@ -8,16 +8,19 @@ const Hero = () => {
     return (
         <header className="relative w-full h-screen overflow-hidden bg-black font-sans selection:bg-white/20">
             {/* Background Video - Vimeo Embed */}
-            <div className={`absolute inset-0 w-full h-full z-0 select-none pointer-events-none overflow-hidden transition-opacity duration-1000 ${videoLoaded ? 'opacity-50' : 'opacity-0'}`}>
-                <iframe
-                    src="https://player.vimeo.com/video/1166674206?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    title="Hero Background"
-                    className="absolute top-1/2 left-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
-                    onLoad={() => setVideoLoaded(true)}
-                />
+            <div className={`absolute inset-0 w-full h-full z-0 select-none pointer-events-none overflow-hidden transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-0'}`}>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] min-w-full min-h-full">
+                    <iframe
+                        src="https://player.vimeo.com/video/1166674206?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479"
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        title="Hero Background"
+                        className="w-full h-full object-cover pointer-events-none"
+                        style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+                        onLoad={() => setVideoLoaded(true)}
+                    />
+                </div>
             </div>
 
             {/* Gradient Overlays */}

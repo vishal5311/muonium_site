@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import HeroCarousel from '../components/ui/HeroCarousel';
 import VideoModal from '../components/ui/VideoModal';
 import Navbar from '../components/Navbar';
@@ -7,18 +7,38 @@ import Footer from '../components/Footer';
 
 const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '100px' }
+        );
+
+        if (containerRef.current) observer.observe(containerRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title={title}
-                className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
-                style={{ background: 'black' }}
-                onLoad={() => setIsLoaded(true)}
-            />
+        <div ref={containerRef} className={`absolute inset-0 w-full h-full bg-zinc-900 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-40'}`}>
+            {isInView && (
+                <iframe
+                    src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title={title}
+                    className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
+                    style={{ background: 'black' }}
+                    onLoad={() => setIsLoaded(true)}
+                />
+            )}
         </div>
     );
 };
