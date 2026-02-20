@@ -15,19 +15,22 @@ const Gaming = () => {
         {
             id: 1,
             title: "Office Room Render",
-            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/OFFICE_OUT.mp4",
+            videoUrl: "",
+            vimeoId: "1166670294",
             thumbnail: "https://images.unsplash.com/photo-1552820728-315697580bfb?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Military Camp",
-            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/MILITARY_CAMP.mp4",
+            videoUrl: "",
+            vimeoId: "1166670210",
             thumbnail: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 4,
             title: "Space Creator",
-            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/Space-Creator-Environment.mov",
+            videoUrl: "",
+            vimeoId: "1166670381",
             thumbnail: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
         }
     ];
@@ -63,8 +66,8 @@ const Gaming = () => {
                         description: video.id === 1 ? "Detailed office interior with ray-traced reflections and realistic lighting." :
                             video.id === 2 ? "High-performance military camp assets designed for real-time engines." :
                                 "Expansive space creation tools for building vast cosmic environments.",
-                        videoUrl: video.videoUrl,
-                        onClick: () => setActiveVideo(video.videoUrl)
+                        videoUrl: video.vimeoId ? `vimeo:${video.vimeoId}` : video.videoUrl,
+                        onClick: () => setActiveVideo(video.vimeoId ? `vimeo:${video.vimeoId}` : video.videoUrl)
                     }))}
                 />
 

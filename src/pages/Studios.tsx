@@ -5,6 +5,24 @@ import VideoModal from '../components/ui/VideoModal';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+const VimeoEmbed = ({ vimeoId, title }: { vimeoId: string; title: string }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    return (
+        <div className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <iframe
+                src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={title}
+                className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
+                style={{ background: 'black' }}
+                onLoad={() => setIsLoaded(true)}
+            />
+        </div>
+    );
+};
+
 const Studios = () => {
     const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
@@ -15,13 +33,15 @@ const Studios = () => {
         {
             id: 1,
             title: "KR Production",
-            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/kr_out.mov.mp4",
+            videoUrl: "",
+            vimeoId: "1166670413",
             thumbnail: "https://images.unsplash.com/photo-1574267432644-f74f8ec1e0e0?auto=format&fit=crop&w=1200&q=80"
         },
         {
             id: 2,
             title: "Thalaivar AI Promo",
-            videoUrl: "https://formnsvrwptpmzme.public.blob.vercel-storage.com/thalaivar.mp4",
+            videoUrl: "",
+            vimeoId: "1166658136",
             thumbnail: "https://images.unsplash.com/photo-1620641788421-3a1b34753be9?auto=format&fit=crop&w=1200&q=80"
         }
     ];
@@ -53,11 +73,17 @@ const Studios = () => {
 
                     <HeroCarousel
                         images={[
-                            { src: "https://images.unsplash.com/photo-1598899134739-9609c96191b0?q=80&w=2681&auto=format&fit=crop", alt: "Cinematic 1", title: "Neo Noir" },
-                            { src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 2", title: "Sci-Fi Landscapes" },
-                            { src: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 3", title: "Digital Humans" },
-                            { src: "https://images.unsplash.com/photo-1512070632392-1823bc3a059a?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 4", title: "Abstract Motion" },
-                            { src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2670&auto=format&fit=crop", alt: "Cinematic 5", title: "VFX Synthesis" },
+                            { src: "https://i.ibb.co/bjGTRNHF/13.png", alt: "Studio Shot 11", title: "Studio Shot 11" },
+                            { src: "https://i.ibb.co/j27n48Q/12.png", alt: "Studio Shot 10", title: "Studio Shot 10" },
+                            { src: "https://i.ibb.co/dwdsjpPy/9.png", alt: "Studio Shot 9", title: "Studio Shot 9" },
+                            { src: "https://i.ibb.co/8n9Qjp4y/8.png", alt: "Studio Shot 8", title: "Studio Shot 8" },
+                            { src: "https://i.ibb.co/HfxZ9QXd/7.png", alt: "Studio Shot 7", title: "Studio Shot 7" },
+                            { src: "https://i.ibb.co/btPXFKM/6.png", alt: "Studio Shot 6", title: "Studio Shot 6" },
+                            { src: "https://i.ibb.co/9mNjW5sF/5.png", alt: "Studio Shot 5", title: "Studio Shot 5" },
+                            { src: "https://i.ibb.co/sZsXbqG/4.png", alt: "Studio Shot 4", title: "Studio Shot 4" },
+                            { src: "https://i.ibb.co/0VWZhWQC/3.png", alt: "Studio Shot 3", title: "Studio Shot 3" },
+                            { src: "https://i.ibb.co/GQ6CNh99/2.png", alt: "Studio Shot 2", title: "Studio Shot 2" },
+                            { src: "https://i.ibb.co/6C99zxw/1.png", alt: "Studio Shot 1", title: "Studio Shot 1" },
                         ]}
                     />
                 </section>
@@ -78,16 +104,20 @@ const Studios = () => {
                                 <div
                                     key={video.id}
                                     className="aspect-video bg-zinc-900 rounded-xl overflow-hidden group relative cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500"
-                                    onClick={() => setActiveVideo(video.videoUrl)}
+                                    onClick={() => setActiveVideo(video.vimeoId ? `vimeo:${video.vimeoId}` : video.videoUrl)}
                                 >
-                                    <video
-                                        src={video.videoUrl}
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-100 group-hover:scale-105"
-                                    />
+                                    {video.vimeoId ? (
+                                        <VimeoEmbed vimeoId={video.vimeoId} title={video.title} />
+                                    ) : (
+                                        <video
+                                            src={video.videoUrl}
+                                            autoPlay
+                                            muted
+                                            loop
+                                            playsInline
+                                            className="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-100 group-hover:scale-105"
+                                        />
+                                    )}
 
                                     {/* Dynamic Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />

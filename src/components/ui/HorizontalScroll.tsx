@@ -1,5 +1,22 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
+const VimeoEmbed = ({ vimeoId }: { vimeoId: string }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    return (
+        <div className={`absolute inset-0 w-full h-full bg-black overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <iframe
+                src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0`}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none"
+                style={{ background: 'black' }}
+                onLoad={() => setIsLoaded(true)}
+            />
+        </div>
+    );
+};
 
 const HorizontalScroll = ({ items }: { items: { src: string; title: string; description: string; videoUrl?: string; onClick?: () => void; }[] }) => {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -15,10 +32,12 @@ const HorizontalScroll = ({ items }: { items: { src: string; title: string; desc
                     {items.map((card, i) => (
                         <div
                             key={i}
-                            className="group relative h-[450px] w-[300px] md:h-[600px] md:w-[450px] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 cursor-pointer"
+                            className="group relative w-[80vw] md:w-[600px] lg:w-[800px] aspect-[16/9] shrink-0 overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 cursor-pointer"
                             onClick={card.onClick}
                         >
-                            {card.videoUrl ? (
+                            {card.videoUrl?.startsWith('vimeo:') ? (
+                                <VimeoEmbed vimeoId={card.videoUrl.replace('vimeo:', '')} />
+                            ) : card.videoUrl ? (
                                 <video
                                     src={card.videoUrl}
                                     autoPlay

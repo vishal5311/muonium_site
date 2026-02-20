@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -11,6 +11,13 @@ interface VideoModalProps {
 
 export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoModalProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isVimeoLoaded, setIsVimeoLoaded] = useState(false);
+
+    useEffect(() => {
+        if (!isOpen) {
+            setIsVimeoLoaded(false);
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen && videoRef.current) {
@@ -75,19 +82,35 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
 
                         {/* Video Container */}
                         <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
-                            <video
-                                ref={videoRef}
-                                src={videoUrl}
-                                controls
-                                controlsList="nodownload nofullscreen"
-                                disablePictureInPicture
-                                onContextMenu={handleContextMenu}
-                                loop
-                                className="w-full h-auto"
-                                playsInline
-                            >
-                                Your browser does not support the video tag.
-                            </video>
+                            {videoUrl.startsWith('vimeo:') ? (
+                                <div className={`aspect-video relative bg-black overflow-hidden transition-opacity duration-700 ${isVimeoLoaded ? 'opacity-100' : 'opacity-0'}`}>
+                                    <iframe
+                                        src={`https://player.vimeo.com/video/${videoUrl.replace('vimeo:', '')}?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479`}
+                                        frameBorder="0"
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        title="Video Player"
+                                        className="absolute inset-[-8px] w-[calc(100%+16px)] h-[calc(100%+16px)]"
+                                        style={{ background: 'black' }}
+                                        allowFullScreen
+                                        onLoad={() => setIsVimeoLoaded(true)}
+                                    />
+                                </div>
+                            ) : (
+                                <video
+                                    ref={videoRef}
+                                    src={videoUrl}
+                                    controls
+                                    controlsList="nodownload nofullscreen"
+                                    disablePictureInPicture
+                                    onContextMenu={handleContextMenu}
+                                    loop
+                                    className="w-full h-auto"
+                                    playsInline
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                            )}
                         </div>
 
                         {/* Instructions */}

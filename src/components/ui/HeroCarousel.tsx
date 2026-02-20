@@ -19,7 +19,7 @@ const HeroCarousel = ({ images }: { images: { src: string; alt: string; title: s
                 {[...images, ...images].map((img, index) => (
                     <div
                         key={index}
-                        className="relative w-[300px] md:w-[450px] aspect-[9/16] md:aspect-[4/5] rounded-[2rem] overflow-hidden group shrink-0 border border-white/5"
+                        className="relative w-[300px] md:w-[450px] aspect-[16/9] rounded-[2rem] overflow-hidden group shrink-0 border border-white/5"
                     >
                         {img.videoUrl ? (
                             <video
