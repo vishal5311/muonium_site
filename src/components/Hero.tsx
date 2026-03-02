@@ -67,10 +67,10 @@ const Hero = () => {
                         className="flex justify-center md:justify-end"
                     >
                         <a
-                            href="#contact"
+                            href="/projects"
                             className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-medium text-sm w-fit uppercase tracking-widest hover:bg-zinc-200 transition-all duration-300"
                         >
-                            <span>Start a Project</span>
+                            <span>Click here to see all our projects</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>
                     </motion.div>

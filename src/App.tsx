@@ -6,6 +6,7 @@ import Gaming from "./pages/Gaming";
 import Media from "./pages/Media";
 import Tech from "./pages/Tech";
 import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 import AvatarUpload from "./components/AvatarUpload"; // Temporary import for testing blob upload
 
 const ScrollToTop = () => {
@@ -24,6 +25,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/studios" element={<Studios />} />
         <Route path="/gaming" element={<Gaming />} />
         <Route path="/media" element={<Media />} />
