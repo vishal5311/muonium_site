@@ -1,17 +1,18 @@
 /* eslint-disable react/no-unknown-property */
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import './Lanyard.css';
 
-// Simple 3D Card component
+// Simple 3D Card component placeholder
 function Card3D() {
-    const gltf = useGLTF('https://cdn.tinyglb.com/models/8c4e98f20d4e4c5081e6a4a5c2d0f28a.glb');
-
     return (
         <group position={[0, 0, 0]} rotation={[0.2, 0.3, 0]}>
-            <primitive object={gltf.scene} scale={2.5} />
+            <mesh scale={2.5}>
+                <boxGeometry args={[1, 1.6, 0.05]} />
+                <meshStandardMaterial color="#333" roughness={0.1} metalness={0.8} />
+            </mesh>
         </group>
     );
 }
